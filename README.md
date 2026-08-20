@@ -1,2 +1,2 @@
 # tunkeutumistestaus
-Raportit Tero Karvisen opettamaan tunkeutumistestaus kurssiin.
+Raportit Tero Karvisen opettamalle tunkeutumistestaus kurssille.
