@@ -7,7 +7,7 @@
 
  ## x) Lue/katso/kuuntele ja tiivistä
 
- ### Dark Net Diaries - Episode 151: Chris Rock
+ ### [Dark Net Diaries - Episode 151: Chris Rock](https://darknetdiaries.com/episode/151/)
 
  -
  -
