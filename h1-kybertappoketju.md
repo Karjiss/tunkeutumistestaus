@@ -1,6 +1,6 @@
 # h1 - Kybertappoketju
 
-- Kurssi: Tunkeutumistestaus (Karvinen 2026)
+- Kurssi: [Tunkeutumistestaus](https://terokarvinen.com/tunkeutumistestaus/) (Karvinen 2026)
 - Opettaja: Tero Karvinen
 - Raportin kirjoittaja: Jani Karjalainen
 
