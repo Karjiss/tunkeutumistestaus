@@ -24,3 +24,7 @@
 -
 -
 -
+
+## a) Asenna Kali virtuaalikoneeseen.
+
+Kali Linux oli jo asennettuna molemmille tietokoneilleni. Pöytäkoneellani käytän uusinta **2026.2**-versiota. Läppärilläni käytän **Kali Rolling 2025.2**-versiota. Molemmilla tietokoneilla virtuaalikoneet pyörivät käyttäen VMWare Workstation Pro:ta.
