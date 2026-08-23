@@ -18,15 +18,36 @@
 
 ### Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains ([Hutchins ym, 2011](https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf))
 
--
--
--
+- **Tutkimus esittää menetelmän, jossa estetään hyökkäyksiä ennakoivasti, eikä vanhanaikaisesti reaktiivisesti.**
+  - Olen samaa mieltä, että reaktiivinen puolustus on vanhanaikaista, hyökkäys on jo tapahtunut jos joudut reagoimaan siihen jälkijunassa. Hyökkääjien analysointi myös vahvistaa omaa puolustustasi, sillä voit ennakoida mahdollisia tapoja ja keinoja tulevaisuudessa paremmin.
+
+- **Hyökkäyksellä on 7 vaihetta, joista kaikkien pitää toteutua, jotta hyökkäys onnistuu. Puolustuksen täytyy katkaista ketju vain kerran, jotta hyökkäys estetään:**
+
+```
+
+1. Reconnaissance
+
+2. Weaponization
+
+3. Delivery
+
+4. Exploitation
+
+5. Installation
+
+6. Command and Control (C2)
+
+7. Actions on Objectives
+
+```
 
 ### The Art of Hacking: 4.3 Surveying Essential Tools for Active Reconnaissance ([Santos ym, 2019](https://www.oreilly.com/videos/the-art-of/9780135767849/9780135767849-SPTT_04_00/)) 
 
--
--
--
+- **Passiivisessa tiedustelussa keräät tietoa ilman, että jätät jälkiä itsestäsi, kun taas aktiivisessa esimerkiksi skannaat portteja, sekä jätät jälkiä/lokeja. Toisinsanoen tiedusteltava ei tiedä passiivisesta tiedustelusta, mutta kykenee huomaamaan jos keräät tietoa aktiivisesti.**
+
+- **Monipuolisin työkalu porttien skannaukseen on ```nmap```. Sitä voidaan käyttää tunnistamaan palveluita, käyttöjärjestelmiä tai jopa heikkouksia.**
+  - Erittäin tärkeä työkalu hakkeroinnissa!
+
 
 ## a) Asenna Kali virtuaalikoneeseen.
 
