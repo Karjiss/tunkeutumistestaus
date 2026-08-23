@@ -55,13 +55,13 @@ Kali Linux oli jo asennettuna molemmille tietokoneilleni. Pöytäkoneellani käy
 
 ## b) Irrota Kali-virtuaalikone verkosta.
 
-Aloitin tarkistamalla verkkoadapterin ID:n, sekä sen statuksen komennolla: ```$ ip a```
+Aloitin tarkistamalla verkkoadapterin ID:n, sekä sen statuksen komennolla: ```ip a```
 
 <img width="719" height="537" alt="image" src="https://github.com/user-attachments/assets/565e4507-ad4c-46f9-a135-2eea4d2f0448" />
 
 - eth0 on verkkoadapterini, jonka sammutan testien ajaksi.
 
-Irrotin virtuaalikoneeni verkosta komennolla: ```$ sudo nmcli device disconnect eth0```
+Irrotin virtuaalikoneeni verkosta komennolla: ```sudo nmcli device disconnect eth0```
 
 <img width="1274" height="798" alt="image" src="https://github.com/user-attachments/assets/520ce14a-fd90-4f14-a12f-f01ff7e7019d" />
 
@@ -71,7 +71,7 @@ Pingasin vielä Cloudflaren DNS-palvelinta tarkistaakseni, etten ole vielä verk
 
 - Ei verkkoa
 
-Seuraavaksi kokeilin porttiskannata oman verkkoni komennolla: ```$ nmap -T4 -A 127.0.0.1```
+Seuraavaksi kokeilin porttiskannata oman verkkoni komennolla: ```nmap -T4 -A 127.0.0.1```
 
 <img width="641" height="298" alt="image" src="https://github.com/user-attachments/assets/5c4a27b2-9e3b-4513-84ba-a6ce3b12fcbd" />
 
@@ -79,7 +79,7 @@ Seuraavaksi kokeilin porttiskannata oman verkkoni komennolla: ```$ nmap -T4 -A 1
 - Olisin käyttänyt komennossa localhostia 127.0.0.1 sijaan, mutta verkon ollessa pois päältä myöskään DNS-palvelu ei ole käytössä.
 - Network distance antaa tuloksen "0", sillä pakettien ei tarvitse liikkua minnekään, sillä skannaan omaa verkkoani.
 
-Komennon: ```$ nmap -T4 -A 127.0.0.1``` parametrit selitettynä:
+Komennon: ```nmap -T4 -A 127.0.0.1``` parametrit selitettynä:
 
 - **-T4 = Määrittää ajankäytön työkalussa, tässä tapauksessa toisiksi nopein template.**
 
