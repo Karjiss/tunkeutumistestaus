@@ -57,7 +57,7 @@ Kali Linux oli jo asennettuna molemmille tietokoneilleni. Pöytäkoneellani käy
 
 Aloitin tarkistamalla verkkoadapterin ID:n, sekä sen statuksen komennolla: ```ip a```
 
-<img width="719" height="537" alt="image" src="https://github.com/user-attachments/assets/565e4507-ad4c-46f9-a135-2eea4d2f0448" />
+<img width="630" height="288" alt="image" src="https://github.com/user-attachments/assets/e494b670-7a37-4332-a19b-bc3aa73089ae" />
 
 - eth0 on verkkoadapterini, jonka sammutan testien ajaksi.
 
