@@ -81,6 +81,6 @@ Seuraavaksi kokeilin porttiskannata oman verkkoni komennolla: ```nmap -T4 -A 127
 
 Komennon: ```nmap -T4 -A 127.0.0.1``` parametrit selitettynä:
 
-- **-T4 = Määrittää ajankäytön työkalussa, tässä tapauksessa toisiksi nopein template.**
+- **-T4 = Määrittää ajankäytön eli skannauksen nopeuden työkalussa.**
 
 - **-A = Tämä parametri ottaa käyttöön käyttöjärjestelmän tunnistamisen, versiontunnistuksen, skriptiskannauksen sekä tracerouten, jolla voidaan selvittää ip-pakettien "hyppypolku".** 
