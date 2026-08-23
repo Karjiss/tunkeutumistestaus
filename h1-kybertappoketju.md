@@ -54,3 +54,33 @@
 Kali Linux oli jo asennettuna molemmille tietokoneilleni. Pöytäkoneellani käytän uusinta **Kali Rolling 2026.2**-versiota. Läppärilläni käytän **Kali Rolling 2025.2**-versiota. Molemmilla tietokoneilla virtuaalikoneet pyörivät käyttäen VMWare Workstation Pro:ta. Molemmille koneille Kali asennettiin lataamalla "Pre-built VM" [Kalin verkkosivuilta](https://www.kali.org/get-kali/#kali-virtual-machines).
 
 ## b) Irrota Kali-virtuaalikone verkosta.
+
+Aloitin tarkistamalla verkkoadapterin ID:n, sekä sen statuksen komennolla: ```$ ip a```
+
+<img width="719" height="537" alt="image" src="https://github.com/user-attachments/assets/565e4507-ad4c-46f9-a135-2eea4d2f0448" />
+
+- eth0 on verkkoadapterini, jonka sammutan testien ajaksi.
+
+Irrotin virtuaalikoneeni verkosta komennolla: ```$ sudo nmcli device disconnect eth0```
+
+<img width="1274" height="798" alt="image" src="https://github.com/user-attachments/assets/520ce14a-fd90-4f14-a12f-f01ff7e7019d" />
+
+Pingasin vielä Cloudflaren DNS-palvelinta tarkistaakseni, etten ole vielä verkossa:
+
+<img width="319" height="76" alt="image" src="https://github.com/user-attachments/assets/9e3ace8c-0d13-41a5-968c-ee797346d1ac" />
+
+- Ei verkkoa
+
+Seuraavaksi kokeilin porttiskannata oman verkkoni komennolla: ```$ nmap -T4 -A 127.0.0.1```
+
+<img width="641" height="298" alt="image" src="https://github.com/user-attachments/assets/5c4a27b2-9e3b-4513-84ba-a6ce3b12fcbd" />
+
+- Skannaus ei tuota hirveästi tulosta, johtuen verkon tilasta. Tietokone ei ole missään yhteydessä "ulkomaailmaan", jonka takia se ei anna juurikaan tietoa.
+- Olisin käyttänyt komennossa localhostia 127.0.0.1 sijaan, mutta verkon ollessa pois päältä myöskään DNS-palvelu ei ole käytössä.
+- Network distance antaa tuloksen "0", sillä pakettien ei tarvitse liikkua minnekään, sillä skannaan omaa verkkoani.
+
+Komennon: ```$ nmap -T4 -A 127.0.0.1``` parametrit selitettynä:
+
+- **-T4 = Määrittää ajankäytön työkalussa, tässä tapauksessa toisiksi nopein template.**
+
+- **-A = Tämä parametri ottaa käyttöön käyttöjärjestelmän tunnistamisen, versiontunnistuksen, skriptiskannauksen sekä tracerouten, jolla voidaan selvittää ip-pakettien "hyppypolku".** 
