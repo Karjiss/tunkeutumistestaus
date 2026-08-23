@@ -12,10 +12,9 @@
 - **Chris Rock kertoo jaksossa "black hat"-töistään, tässä tapauksessa hacking-for-hire työstä lähi-idän asiakkaalle, joka epäili jonkun ryöstävän häneltä rahaa.**
   - Valitsin tämän jakson, sillä tällainen "mercenary" tyylinen hakkerointi kuulosti mielenkiintoiselta.
  
-- **Hakkeroidessa Chris ja hänen tiiminsä reititti liikenteensä useiden eri maiden väliltä, pääpointtina joka eri maan huonot välit, jotta he eivät halua jakaa tietoja toisilleen kysyttäessä.**
+- **Hakkeroidessa Chris ja hänen tiiminsä reititti liikenteensä useiden eri maiden väliltä, pääpointtina jokaisen hypyn välisen maan huonot välit, koska he eivät halua jakaa tietoja toisilleen kysyttäessä.**
   - Tämä oli mielestäni erittäin mielenkiintoinen tapa toimia, sillä yrittäessä pysyä piilossa joudut piilottelemaan jälkiäsi. Jos hypit esimerkiksi sodassa olevien maiden välillä ennen kohdetta, tiedonjako on todennäköisesti erittäin huonoa. Lisäksi tämä vaikuttaa todella työläältä, sillä joudut tunkeutumaan eri laitteisiin useassa eri maassa, vain voidaksesi reitittää hyökkäyksesi niiden läpi.
-   
-- **
+  - Haastattelu saa minut myös miettimään, luokitellaanko Chris black-hatiksi vai gray-hatiksi? Sillä kyllä, hän rikkoo lakia tehdäkseen rahaa, mutta samaan aikaan hän tekee tätä rikollisille, jotka esimerkiksi ovat varastaneet rahaa.
 
 ### Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains ([Hutchins ym, 2011](https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf))
 
