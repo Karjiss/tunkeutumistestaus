@@ -77,7 +77,7 @@ Seuraavaksi kokeilin porttiskannata oman verkkoni komennolla: ```nmap -T4 -A 127
 
 - Skannaus ei tuota hirveästi tulosta, johtuen verkon tilasta. Tietokone ei ole missään yhteydessä "ulkomaailmaan", jonka takia se ei anna juurikaan tietoa.
 - Olisin käyttänyt komennossa localhostia 127.0.0.1 sijaan, mutta verkon ollessa pois päältä myöskään DNS-palvelu ei ole käytössä.
-- Network distance antaa tuloksen "0", sillä pakettien ei tarvitse liikkua minnekään, sillä skannaan omaa verkkoani.
+- Network distance antaa tuloksen "0", koska pakettien ei tarvitse liikkua minnekään, sillä skannaan omaa verkkoani.
 
 Komennon: ```nmap -T4 -A 127.0.0.1``` parametrit selitettynä:
 
