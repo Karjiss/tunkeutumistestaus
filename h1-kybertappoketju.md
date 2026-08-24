@@ -104,10 +104,10 @@ sudo systemctl start ssh
 
 Seuraavaksi ajan aikaisemmin suoritetun porttiskannin uudestaan samoilla parametreillä:
 
-<img width="1152" height="648" alt="image" src="https://github.com/user-attachments/assets/25cf6a3f-a84e-47f3-a2be-e18494f88e25" />
+<img width="718" height="437" alt="image" src="https://github.com/user-attachments/assets/213bdfc4-b268-4569-9a58-b3cd5ba185c2" />
 
 - Nyt nmap löysi kaksi avointa porttia! Ne ovat äsken käynnistetyt daemonit.
-- Myös käyttöjärjestelmän tunnistus sai dataa, sillä portteja on auki!
+- Myös käyttöjärjestelmän tunnistus sai dataa auki olevien porttien ansiosta.
 - Vaikka laitteella ei pääse verkkoon, nämä daemonit käynnissä ollessa avaavat portin. Siksi sain eri tuloksia kuin aikaisemmin.
 
 
