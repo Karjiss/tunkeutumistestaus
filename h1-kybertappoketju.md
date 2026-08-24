@@ -83,4 +83,37 @@ Komennon: ```nmap -T4 -A 127.0.0.1``` parametrit selitettynä:
 
 - **-T4 = Määrittää ajankäytön eli skannauksen nopeuden työkalussa.**
 
-- **-A = Tämä parametri ottaa käyttöön käyttöjärjestelmän tunnistamisen, versiontunnistuksen, skriptiskannauksen sekä tracerouten, jolla voidaan selvittää ip-pakettien "hyppypolku".** 
+- **-A = Tämä parametri ottaa käyttöön käyttöjärjestelmän tunnistamisen, versiontunnistuksen, skriptiskannauksen sekä tracerouten, jolla voidaan selvittää ip-pakettien "hyppypolku".**
+
+## d) Asenna kaksi vapaavalintaista demonia ja skannaa uudelleen. Analysoi ja selitä erot.
+
+Asensin daemonit ```apache2``` ja ```openssh-server``` komennolla: ```sudo apt install apache2 openssh-server -y```
+
+Tämän jälkeen käynnistin daemonit komennoilla:
+
+```
+sudo systemctl start apache2
+sudo systemctl start ssh
+
+```
+- Muuttamalla komennosta "start" --> "status" voit tarkastaa daemonien tilan.
+
+<img width="485" height="293" alt="image" src="https://github.com/user-attachments/assets/f1da6acd-7095-491d-b723-442a0fc5e08a" />
+
+- Molemmat ovat aktiivisia!
+
+Seuraavaksi ajan aikaisemmin suoritetun porttiskannin uudestaan samoilla parametreillä:
+
+<img width="1152" height="648" alt="image" src="https://github.com/user-attachments/assets/25cf6a3f-a84e-47f3-a2be-e18494f88e25" />
+
+- Nyt nmap löysi kaksi avointa porttia! Ne ovat äsken käynnistetyt daemonit.
+- Myös käyttöjärjestelmän tunnistus sai dataa, sillä portteja on auki!
+- Vaikka laitteella ei pääse verkkoon, nämä daemonit käynnissä ollessa avaavat portin. Siksi sain eri tuloksia kuin aikaisemmin.
+
+
+
+
+
+
+
+
