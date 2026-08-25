@@ -43,21 +43,21 @@
 
 ### The Art of Hacking: 4.3 Surveying Essential Tools for Active Reconnaissance ([Santos ym, 2019](https://www.oreilly.com/videos/the-art-of/9780135767849/9780135767849-SPTT_04_00/)) 
 
-- **Passiivisessa tiedustelussa keräät tietoa ilman, että jätät jälkiä itsestäsi, kun taas aktiivisessa esimerkiksi skannaat portteja, sekä jätät jälkiä/lokeja. Toisinsanoen tiedusteltava ei tiedä passiivisesta tiedustelusta, mutta kykenee huomaamaan jos keräät tietoa aktiivisesti.**
+- **Passiivisessa tiedustelussa keräät tietoa ilman, että jätät jälkiä itsestäsi, kun taas aktiivisessa esimerkiksi skannaat portteja, sekä jätät jälkiä/lokeja. Toisin sanoen tiedusteltava ei tiedä passiivisesta tiedustelusta, mutta kykenee huomaamaan jos keräät tietoa aktiivisesti.**
 
 - **Monipuolisin työkalu porttien skannaukseen on ```nmap```. Sitä voidaan käyttää tunnistamaan palveluita, käyttöjärjestelmiä tai jopa heikkouksia.**
   - Erittäin tärkeä työkalu hakkeroinnissa!
 
 ### [KKO 2003:36.](https://www.finlex.fi/fi/oikeuskaytanto/korkein-oikeus/ennakkopaatokset/2003/36)
 
-- Vaikka tapauksen tekijä ei olisi yrittänyt varastaa mitään tai aiheuttaa vahinkoa, on hän silti aiheuttanut paljon vahinkoa asianomistajalle.
+- Vaikka tapauksen tekijä ei olisi yrittänyt varastaa mitään, taikka aiheuttaa vahinkoa, on hän silti aiheuttanut paljon vahinkoa asianomistajalle.
 - Tämän takia kannattaa mieluiten harjoitella hakkeroimista laillisin keinoin!
 
-## a) Asenna Kali virtuaalikoneeseen.
+## a) Asenna Kali virtuaalikoneeseen
 
 Kali Linux oli jo asennettuna molemmille tietokoneilleni. Pöytäkoneellani käytän uusinta **Kali Rolling 2026.2**-versiota. Läppärilläni käytän **Kali Rolling 2025.2**-versiota. Molemmilla tietokoneilla virtuaalikoneet pyörivät käyttäen VMWare Workstation Pro:ta. Molemmille koneille Kali asennettiin lataamalla "Pre-built VM" [Kalin verkkosivuilta](https://www.kali.org/get-kali/#kali-virtual-machines).
 
-## b) Irrota Kali-virtuaalikone verkosta.
+## b) Irrota Kali-virtuaalikone verkosta
 
 Aloitin tarkistamalla verkkoadapterin ID:n, sekä sen statuksen komennolla: ```ip a```
 
@@ -73,7 +73,7 @@ Pingasin vielä Cloudflaren DNS-palvelinta tarkistaakseni, etten ole vielä verk
 
 <img width="319" height="76" alt="image" src="https://github.com/user-attachments/assets/9e3ace8c-0d13-41a5-968c-ee797346d1ac" />
 
-- Ei verkkoa
+- Ei verkkoa.
 
 Seuraavaksi kokeilin porttiskannata oman verkkoni komennolla: ```nmap -T4 -A 127.0.0.1```
 
@@ -89,7 +89,7 @@ Komennon: ```nmap -T4 -A 127.0.0.1``` parametrit selitettynä:
 
 - **-A = Tämä parametri ottaa käyttöön käyttöjärjestelmän tunnistamisen, versiontunnistuksen, skriptiskannauksen sekä tracerouten, jolla voidaan selvittää ip-pakettien "hyppypolku".**
 
-## d) Asenna kaksi vapaavalintaista demonia ja skannaa uudelleen. Analysoi ja selitä erot.
+## d) Asenna kaksi vapaavalintaista demonia ja skannaa uudelleen. Analysoi ja selitä erot
 
 Asensin daemonit ```apache2``` ja ```openssh-server``` komennolla: ```sudo apt install apache2 openssh-server -y```
 
@@ -114,11 +114,11 @@ Seuraavaksi ajan aikaisemmin suoritetun porttiskannin uudestaan samoilla paramet
 - Myös käyttöjärjestelmän tunnistus sai dataa auki olevien porttien ansiosta.
 - Vaikka laitteella ei pääse verkkoon, nämä daemonit käynnissä ollessa avaavat portin. Siksi sain eri tuloksia kuin aikaisemmin.
 
-## e) **Ratkaise vapaavalintainen kone HackTheBoxista. Omalle tasolle sopiva, useimmille varmaan Starting Pointista. Valitse kone, jota et ole ratkaissut vielä. Ei tunnilla näytetty Meow.**
+## e) **Ratkaise vapaavalintainen kone HackTheBoxista**
 
 ### HTB lab: "Appointment"
 
-- Hack The Boxin OpenVPN olin jo asentanut valmiiksi. Ohjeet siihen löytää kurssin sivuilta (Karvinen 2026). 
+- HackTheBoxin OpenVPN olin jo asentanut valmiiksi. Ohjeet siihen löytää kurssin sivuilta (Karvinen 2026). 
 
 
 Aloitin tekemällä ensimmäiset tehtävät:
@@ -165,7 +165,7 @@ Voin manipuloida SQL-kyselyä esimerkiksi siten, että käyttäjätunnuksen jäl
 
 ## Lähteet
 
-Hack The Box. Starting grounds. https://app.hackthebox.com/starting-point
+HackTheBox. Starting grounds. https://app.hackthebox.com/starting-point
 
 Hutchins, E. 2011. Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains. Luettavissa: https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf
 
