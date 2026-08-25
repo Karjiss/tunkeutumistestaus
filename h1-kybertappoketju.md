@@ -165,7 +165,7 @@ Voin manipuloida SQL-kyselyä esimerkiksi siten, että käyttäjätunnuksen jäl
 
 ## Lähteet
 
-https://www.hackthebox.com/
+Hack The Box. Starting grounds. https://app.hackthebox.com/starting-point
 
 Hutchins, E. 2011. Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains. Luettavissa: https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf
 
