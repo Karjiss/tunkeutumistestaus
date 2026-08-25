@@ -165,6 +165,8 @@ Voin manipuloida SQL-kyselyä esimerkiksi siten, että käyttäjätunnuksen jäl
 
 ## Lähteet
 
+https://www.hackthebox.com/
+
 Hutchins, E. 2011. Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains. Luettavissa: https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf
 
 Karvinen, T. 2026. Tunkeutumistestaus. Luettavissa: https://terokarvinen.com/tunkeutumistestaus/
