@@ -110,10 +110,60 @@ Seuraavaksi ajan aikaisemmin suoritetun porttiskannin uudestaan samoilla paramet
 - Myös käyttöjärjestelmän tunnistus sai dataa auki olevien porttien ansiosta.
 - Vaikka laitteella ei pääse verkkoon, nämä daemonit käynnissä ollessa avaavat portin. Siksi sain eri tuloksia kuin aikaisemmin.
 
+## e) **Ratkaise vapaavalintainen kone HackTheBoxista. Omalle tasolle sopiva, useimmille varmaan Starting Pointista. Valitse kone, jota et ole ratkaissut vielä. Ei tunnilla näytetty Meow.**
+
+### HTB lab: "Appointment"
+
+- Hack The Boxin OpenVPN olin jo asentanut valmiiksi. Ohjeet siihen löytää kurssin sivuilta (Karvinen 2026). 
 
 
+Aloitin tekemällä ensimmäiset tehtävät:
 
+<img width="1259" height="584" alt="image" src="https://github.com/user-attachments/assets/6ad18fc1-1528-42d1-b3b3-d89a5e1aa594" />
 
+Sitten alkaa tehtävät itse koneessa:
 
+<img width="1236" height="178" alt="image" src="https://github.com/user-attachments/assets/5afb8217-9fa8-4ffc-b409-03a798d97e24" />
 
+Yhdistin virtuaalikoneeni OpenVPN yhteyteen ja varmistin, että pingit eivät mene läpi kohteen ulkopuolelle:
+
+<img width="524" height="115" alt="image" src="https://github.com/user-attachments/assets/1093b071-327d-49b7-94dc-0749c8878b83" />
+
+- Paketit eivät mene läpi!
+
+Suoritin nmapilla porttiskannin kohde IP:seen komennolla: ```nmap -T5 -A 10.129.169.133```.
+
+<img width="704" height="443" alt="image" src="https://github.com/user-attachments/assets/bbd47d86-cc96-490f-bbb8-c6822e69f0fd" />
+
+- Porttiskannaus tunnistaa apachen portista 80, sekä sen version.
+- Tässä olisi voinut käyttää myös muita parametrejä, kuten: ```-sC -sV```.
+
+<img width="1124" height="865" alt="image" src="https://github.com/user-attachments/assets/551f238c-efc5-4258-af71-e5897464be24" />
+
+<img width="1247" height="310" alt="image" src="https://github.com/user-attachments/assets/842461d1-2b6f-445b-89f0-f92fa92f026d" />
+ 
+Tässä kohtaa avaan verkkoselaimessa kohde IP:n sivun:
+
+<img width="759" height="766" alt="image" src="https://github.com/user-attachments/assets/e7aad479-610f-4ba4-94f3-1908c020e18e" />
+
+Kyseessä on kirjautumissivu, johon pitäisi päästä sisälle SQL-injektiolla.
+Voin manipuloida SQL-kyselyä esimerkiksi siten, että käyttäjätunnuksen jälkeen lisään merkit ```'#```. Heittomerkki sulkee koodin merkkijonon ja risuaita tekee SQL-kyselyn loppupätkästä kommentin. Näin pystyisin kirjautumaan admin-tunnuksille ilman oikeaa salasanaa.
+
+<img width="486" height="459" alt="image" src="https://github.com/user-attachments/assets/d43fd405-106b-4c0b-a5ec-26660e29e21a" />
+
+<img width="743" height="228" alt="image" src="https://github.com/user-attachments/assets/eeb5ea0f-9885-42e1-9ca5-4bf1fd95baba" />
+
+- Syöte toimi! Eli syötettyäni käyttäjätunnuksen "Admin", lisäsin sen perään heittomerkin ja risuaidan, joten loppuosa kyselystä jäi turhaksi ja pääsin sisälle!
+
+<img width="1097" height="291" alt="image" src="https://github.com/user-attachments/assets/6afe8a71-f727-48ba-8e63-b589b70b7643" />
+
+<img width="877" height="486" alt="image" src="https://github.com/user-attachments/assets/c1c97153-ede5-4d6f-afc4-2921426d8791" />
+
+## Lähteet
+
+Karvinen, T. 2026. Tunkeutumistestaus. Luettavissa: https://terokarvinen.com/tunkeutumistestaus/
+
+Rhysider, J. 5.11.2024. EP 151: Chris Rock. Dark Net Diaries -podcast. Kuunneltavissa: https://darknetdiaries.com/episode/151/
+
+Hutchins, E. 2011. Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains. Luettavissa: https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf
 
