@@ -48,6 +48,10 @@
 - **Monipuolisin työkalu porttien skannaukseen on ```nmap```. Sitä voidaan käyttää tunnistamaan palveluita, käyttöjärjestelmiä tai jopa heikkouksia.**
   - Erittäin tärkeä työkalu hakkeroinnissa!
 
+### [KKO 2003:36.](https://www.finlex.fi/fi/oikeuskaytanto/korkein-oikeus/ennakkopaatokset/2003/36)
+
+- Vaikka tapauksen tekijä ei olisi yrittänyt varastaa mitään tai aiheuttaa vahinkoa, on hän silti aiheuttanut paljon vahinkoa asianomistajalle.
+- Tämän takia kannattaa mieluiten harjoitella hakkeroimista laillisin keinoin!
 
 ## a) Asenna Kali virtuaalikoneeseen.
 
@@ -161,9 +165,12 @@ Voin manipuloida SQL-kyselyä esimerkiksi siten, että käyttäjätunnuksen jäl
 
 ## Lähteet
 
+Hutchins, E. 2011. Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains. Luettavissa: https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf
+
 Karvinen, T. 2026. Tunkeutumistestaus. Luettavissa: https://terokarvinen.com/tunkeutumistestaus/
+
+KKO 2003:36. https://www.finlex.fi/fi/oikeuskaytanto/korkein-oikeus/ennakkopaatokset/2003/36#OT2_OT0_OT0
 
 Rhysider, J. 5.11.2024. EP 151: Chris Rock. Dark Net Diaries -podcast. Kuunneltavissa: https://darknetdiaries.com/episode/151/
 
-Hutchins, E. 2011. Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains. Luettavissa: https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf
-
+Kali. Get Kali. https://www.kali.org/get-kali/#kali-virtual-machines
