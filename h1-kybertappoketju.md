@@ -169,10 +169,13 @@ HackTheBox. Starting grounds. https://app.hackthebox.com/starting-point
 
 Hutchins, E. 2011. Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains. Luettavissa: https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf
 
+Kali. Get Kali. https://www.kali.org/get-kali/#kali-virtual-machines
+
 Karvinen, T. 2026. Tunkeutumistestaus. Luettavissa: https://terokarvinen.com/tunkeutumistestaus/
 
 KKO 2003:36. https://www.finlex.fi/fi/oikeuskaytanto/korkein-oikeus/ennakkopaatokset/2003/36#OT2_OT0_OT0
 
 Rhysider, J. 5.11.2024. EP 151: Chris Rock. Dark Net Diaries -podcast. Kuunneltavissa: https://darknetdiaries.com/episode/151/
 
-Kali. Get Kali. https://www.kali.org/get-kali/#kali-virtual-machines
+Santos, O. 2019. The Art of Hacking. Katsottavissa: https://www.oreilly.com/videos/the-art-of/9780135767849/9780135767849-SPTT_04_00/
+
