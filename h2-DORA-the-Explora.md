@@ -13,7 +13,7 @@
 - Rahoitusalan testausprosessi kestää 1-1,5 vuotta.
 - Tämä oli todella hyvä luento kalvoineen. Avasi pentest maailmaa hyvin.
 
-### DORA (Regulation ... on digital operational resilience for the financial sector) 
+### **DORA (Regulation ... on digital operational resilience for the financial sector)** 
 
 
-### TIBER-FI procedures and guidelines (
+### **TIBER-FI procedures and guidelines**
