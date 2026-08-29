@@ -15,5 +15,15 @@
 
 ### **DORA (Regulation ... on digital operational resilience for the financial sector)** 
 
+Artikla 26:
+
+-
+-
+
+Artikla 27:
+
+-
+-
+
 
 ### **TIBER-FI procedures and guidelines**
