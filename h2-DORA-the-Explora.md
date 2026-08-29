@@ -7,4 +7,13 @@
 
  ## x) Lue/katso/kuuntele ja tiivistä
 
-DORA and TLPT testing - Lecture for Haaga-Helia on 31 March 2026. ([Buuri, M. 2026](https://terokarvinen.com/buuri-2026-dora-and-threat-lead-penetration-testing/buuri-2026-dora-and-threat-lead-penetration-testing--teros-pentest-course.pdf))
+### **DORA and TLPT testing - Lecture for Haaga-Helia on 31 March 2026** ([Buuri, M. 2026](https://terokarvinen.com/buuri-2026-dora-and-threat-lead-penetration-testing/buuri-2026-dora-and-threat-lead-penetration-testing--teros-pentest-course.pdf))
+
+- Red teamaus kyberturvallisuudessa virallistui ja sai suosiota esimerkiksi rahoitusalalla 2010-luvulla.
+- Rahoitusalan testausprosessi kestää 1-1,5 vuotta.
+- Tämä oli todella hyvä luento kalvoineen. Avasi pentest maailmaa hyvin.
+
+### DORA (Regulation ... on digital operational resilience for the financial sector) 
+
+
+### TIBER-FI procedures and guidelines (
