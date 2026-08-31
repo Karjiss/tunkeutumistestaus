@@ -40,3 +40,6 @@
   - Vaihe 5. Hallinta
   - Vaihe 6. Toiminta kohteessa
 
+## a) Asenna Metasploitable 2 virtuaalikoneeseen
+
+Aloitin lataamalla Metasploitable 2 virtuaalikoneen [Sourceforgesta](https://sourceforge.net/projects/metasploitable/files/latest/download),
