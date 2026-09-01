@@ -27,7 +27,7 @@
   - Uhkatiedustelun, tunkeutumistestauksen ja red teamauksen asiantuntijoita.
 
 
-### **TIBER-FI procedures and guidelines([Suomen Pankki. 2025.](https://www.suomenpankki.fi/globalassets/bof/en/money-and-payments/the-bank-of-finland-as-catalyst-payments-council/tiber-fi/tiber-fi-2.0-procedures-and-guidelines.pdf))**
+### **TIBER-FI procedures and guidelines([Suomen Pankki. 2025](https://www.suomenpankki.fi/globalassets/bof/en/money-and-payments/the-bank-of-finland-as-catalyst-payments-council/tiber-fi/tiber-fi-2.0-procedures-and-guidelines.pdf))**
 
 - Red teamin testausvaihe koostuu kahdesta prosessivaiheesta:
   - RTTP (Red Team Test Plan) laatiminen, kesto 2-3 viikkoa.
@@ -169,11 +169,11 @@ Ubuntu. 2010. USN-897-1: MySQL vulnerabilities. Ubuntu Security Notices. Luettav
 
 2022/2554. Luettavissa: https://eur-lex.europa.eu/eli/reg/2022/2554/oj/eng
 
-Karvinen, T. 2026. Tunkeutumistestaus. Luettavissa: https://terokarvinen.com/tunkeutumistestaus/.
+Karvinen, T. 2026. Tunkeutumistestaus. Luettavissa: https://terokarvinen.com/tunkeutumistestaus/
 
 Lyon, G. 2009. Host Discovery.Nmap Network Scanning: The Official Nmap Project Guide to Network Discovery and Vulnerability Scanning. Nmap Project. Luettavissa: https://nmap.org/book/man-host-discovery.html
 
-Rapid7user. 2012. Metasploitable 2. Intentionally vulnerable Linux virtual machine. SourceForge. Luettavissa: https://sourceforge.net/projects/metasploitable/
+Rapid7user. 2012. Metasploitable 2. Intentionally vulnerable Linux virtual machine. SourceForge. Ladattavissa: https://sourceforge.net/projects/metasploitable/
 
 SecurityScorecard. 2025. FTP Security Risks, Vulnerabilities & Best Practices Guide. Luettavissa: https://securityscorecard.com/blog/ftp-security-risks/
 
