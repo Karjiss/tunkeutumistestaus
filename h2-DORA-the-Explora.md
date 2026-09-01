@@ -163,20 +163,20 @@ Myös Telnetillä on auki oleva portti koneella. Telnetissä ei ole minkäänlai
 ## Lähteet
 
 
-Buuri, M. 2026. DORA and TLPT testing. Luentomateriaali Haaga-Helia ammattikorkeakoulussa 31.3.2026. Luettavissa: https://terokarvinen.com/buuri-2026-dora-and-threat-lead-penetration-testing/buuri-2026-dora-and-threat-lead-penetration-testing--teros-pentest-course.pdf.
+Buuri, M. 2026. DORA and TLPT testing. Luettavissa: https://terokarvinen.com/buuri-2026-dora-and-threat-lead-penetration-testing/buuri-2026-dora-and-threat-lead-penetration-testing--teros-pentest-course.pdf
 
-Ubuntu. 2010. USN-897-1: MySQL vulnerabilities. Ubuntu Security Notices. Luettavissa: https://ubuntu.com/security/notices/USN-897-1.
+Ubuntu. 2010. USN-897-1: MySQL vulnerabilities. Ubuntu Security Notices. Luettavissa: https://ubuntu.com/security/notices/USN-897-1
 
-2022/2554. Luettavissa: https://eur-lex.europa.eu/eli/reg/2022/2554/oj/eng.
+2022/2554. Luettavissa: https://eur-lex.europa.eu/eli/reg/2022/2554/oj/eng
 
-Karvinen, T. s.a. Tunkeutumistestaus. Kurssisivusto. URL: https://terokarvinen.com/tunkeutumistestaus/. Luettu: 1.9.2026.
+Karvinen, T. 2026. Tunkeutumistestaus. Luettavissa: https://terokarvinen.com/tunkeutumistestaus/.
 
-Lyon, G. 2009. Host Discovery.Nmap Network Scanning: The Official Nmap Project Guide to Network Discovery and Vulnerability Scanning. Nmap Project. Luettavissa: https://nmap.org/book/man-host-discovery.html.
+Lyon, G. 2009. Host Discovery.Nmap Network Scanning: The Official Nmap Project Guide to Network Discovery and Vulnerability Scanning. Nmap Project. Luettavissa: https://nmap.org/book/man-host-discovery.html
 
-Rapid7 2012. Metasploitable 2. Intentionally vulnerable Linux virtual machine. SourceForge. URL: https://sourceforge.net/projects/metasploitable/files/latest/download. Luettu: 1.9.2026.
+Rapid7user. 2012. Metasploitable 2. Intentionally vulnerable Linux virtual machine. SourceForge. Luettavissa: https://sourceforge.net/projects/metasploitable/
 
-SecurityScorecard 2025. FTP Security Risks, Vulnerabilities & Best Practices Guide. SecurityScorecard Blog. URL: https://securityscorecard.com/blog/ftp-security-risks/. Luettu: 1.9.2026.
+SecurityScorecard. 2025. FTP Security Risks, Vulnerabilities & Best Practices Guide. Luettavissa: https://securityscorecard.com/blog/ftp-security-risks/
 
-Suomen Pankki 2023. TIBER-FI 2.0: Threat Intelligence-based Ethical Red Teaming – Procedures and Guidelines. Suomen Pankki. Luettavissa: https://www.suomenpankki.fi/globalassets/bof/en/money-and-payments/the-bank-of-finland-as-catalyst-payments-council/tiber-fi/tiber-fi-2.0-procedures-and-guidelines.pdf.
+Suomen Pankki. 2025. TIBER-FI 2.0: Threat Intelligence-based Ethical Red Teaming – Procedures and Guidelines. Suomen Pankki. Luettavissa: https://www.suomenpankki.fi/globalassets/bof/en/money-and-payments/the-bank-of-finland-as-catalyst-payments-council/tiber-fi/tiber-fi-2.0-procedures-and-guidelines.pdf
 
 
