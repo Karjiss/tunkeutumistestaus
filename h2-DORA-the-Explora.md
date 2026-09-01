@@ -13,7 +13,7 @@
 - Finanssialan testausprosessi kestää 1-1,5 vuotta.
 - Tämä oli todella hyvä luento kalvoineen. Avasi tunkeutumistestausta rahoitusalalla hyvin.
 
-### **DORA - Regulation ... on digital operational resilience for the financial sector ([2022/2554](https://eur-lex.europa.eu/eli/reg/2022/2554/oj/eng))** 
+### **DORA - Regulation on digital operational resilience for the financial sector ([2022/2554](https://eur-lex.europa.eu/eli/reg/2022/2554/oj/eng))** 
 
 **Artikla 26: Advanced testing of ICT tools, systems and processes based on TLPT**
 
