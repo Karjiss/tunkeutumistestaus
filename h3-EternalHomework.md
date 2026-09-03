@@ -14,3 +14,7 @@
 - Virtualisointiohjelmisto: **VMWare Workstation Pro**
 
  ## x) Lue/katso/kuuntele ja tiivistä
+
+### **Mastering Metasploit - 4ed: Chapter 1: Approaching a Penetration Test Using Metasploit** ([Jaswal, N. 2020](https://learning.oreilly.com/library/view/mastering-metasploit/9781838980078/B15076_01_Final_ASB_ePub.xhtml#_idParaDest-31))
+
+-
