@@ -36,3 +36,7 @@ Lähteenä käytin Nmapin omilla sivuilla olevaa kirjaa, joten uskoisin sen olev
 
 - ```ICMP``` - Internet Control Message Protocol
 - ```TCP``` - Transmission Control Protocol
+
+
+## b) Tallenna porttiskannauksen tuloksia Metasploitin tietokantoihin
+
