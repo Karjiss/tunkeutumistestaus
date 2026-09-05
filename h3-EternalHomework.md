@@ -118,7 +118,7 @@ Aloitin hakemalla msfconsolessa komennolla: ```search type:exploit eternalblue``
 
 - Hakusanalla löytyi EternalBlue ja EternalRomance. Haussa esille tuli myös muita, kuten: EternalChampion ja EternalSynergy
 
-Molemmista on kirjoitettu ainakin [Iltasanomissa](https://www.is.fi/digitoday/tietoturva/art-2000005426332.html), sekä [BBC:llä](https://www.bbc.com/news/technology-39905509).
+Molemmista on kirjoitettu ainakin [Iltasanomissa](https://www.is.fi/digitoday/tietoturva/art-2000005426332.html)(EternalRomance), sekä [BBC:llä](https://www.bbc.com/news/technology-39905509)(EternalBlue).
 
 Exploitista saa enemmän tietoa, kun avaa hyökkäyksen komennolla: ```use exploit/windows/smb/ms17_010_eternalblue``` ja sitten: ```info```
 
