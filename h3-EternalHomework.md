@@ -72,7 +72,13 @@ Taustalla on jo Metasploitable 2 virtuaalikone käynnissä, joten aloitan testit
 
 <img width="321" height="104" alt="image" src="https://github.com/user-attachments/assets/4e0e7b96-0f1c-48b0-b90b-cf489e54f297" />
 
-Kokeilin viime raportissa käyttämiäni parametrejä porttiskannaukseen: ```nmap -A -T4 -p-```
+Varmistin, ettei Metasploitablen IP-osoite ole muuttunut tekemällä "Host-Discovery" skannauksen ilman porttiskannausta komennolla: ```db_nmap -sn 192.168.32.0/24```
+
+<img width="554" height="210" alt="image" src="https://github.com/user-attachments/assets/33be29af-1df4-41b1-aafd-3f7c172b8a2d" />
+
+- IP-osoite ei ole muuttunut (192.168.32.128).
+
+Kokeilin viime raportissa käyttämiäni parametrejä porttiskannaukseen: ```db_nmap -A -T4 -p-```
 
 <img width="730" height="300" alt="image" src="https://github.com/user-attachments/assets/e95dd95c-23f3-4feb-9ed2-fe3c2d292545" />
 
@@ -81,3 +87,17 @@ Kokeilin viime raportissa käyttämiäni parametrejä porttiskannaukseen: ```nma
 Olisin voinut ajaa kevyemmän skannin pelkällä versioskannauksella, mutta parametri ```-A``` pitää jo versioskannauksen sisällään.
 
 ## c) Tarkastele Metasploitin tietokantoihin tallennettuja tietoja komennoilla "hosts" ja "services". Kokeile suodattaa näitä listoja tai hakea niistä.
+
+Aloin tutkimaan tallennettuja tietoja aikaisemman tehtävän jäljiltä:
+
+```msf > hosts```:
+
+<img width="795" height="233" alt="image" src="https://github.com/user-attachments/assets/90ca5f36-0827-499a-8771-82ef7c649297" />
+
+- "Hosts" osiosta löytyy ```-sn``` skannauksella löydetyt koko IP-rangen tietokoneet.
+
+```msf > services```:
+
+<img width="588" height="506" alt="image" src="https://github.com/user-attachments/assets/c9b16bcc-8b61-45b5-a137-9a48b43043a4" />
+
+- Palveluita löytyi todella paljon, mikä on odotettua Metasploitable-konetta skannaillessa.
