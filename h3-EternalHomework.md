@@ -86,7 +86,7 @@ Kokeilin viime raportissa käyttämiäni parametrejä porttiskannaukseen: ```db_
 
 Olisin voinut ajaa kevyemmän skannin pelkällä versioskannauksella, mutta parametri ```-A``` pitää jo versioskannauksen sisällään.
 
-## c) Tarkastele Metasploitin tietokantoihin tallennettuja tietoja komennoilla "hosts" ja "services". Kokeile suodattaa näitä listoja tai hakea niistä.
+## c) Tarkastele Metasploitin tietokantoihin tallennettuja tietoja komennoilla "hosts" ja "services". Kokeile suodattaa näitä listoja tai hakea niistä
 
 Aloin tutkimaan tallennettuja tietoja aikaisemman tehtävän jäljiltä:
 
@@ -101,3 +101,11 @@ Aloin tutkimaan tallennettuja tietoja aikaisemman tehtävän jäljiltä:
 <img width="588" height="506" alt="image" src="https://github.com/user-attachments/assets/c9b16bcc-8b61-45b5-a137-9a48b43043a4" />
 
 - Palveluita löytyi todella paljon, mikä on odotettua Metasploitable-konetta skannaillessa.
+
+Tietokantoihin tallennettuja tietoja voi suodattaa erilaisilla komennoilla. Suodatusvaihtoehtoja löytää komennoilla: ```hosts -h``` ja ```services -h```.
+
+Voit esimerkiksi suodattaa listan näyttämään vain portit väliltä 23-660 komennolla: ```services -p 23-660```
+
+<img width="813" height="279" alt="image" src="https://github.com/user-attachments/assets/dbe3e347-0b6e-446e-bc15-13d38bfe7ecb" />
+
+## d) Internet famous. Etsi Metasploitablen mukana tulevista hyökkäyksistä (en: exploits; search) sellainen, joka on ollut julkisuudessa
