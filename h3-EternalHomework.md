@@ -126,4 +126,8 @@ Exploitista saa enemmän tietoa, kun avaa hyökkäyksen komennolla: ```use explo
 
 <img width="726" height="273" alt="image" src="https://github.com/user-attachments/assets/5b704c2c-55e8-45b1-99f5-1a06dbfd9f19" />
 
+
+EternalBlue on NSA:n luoma työkalu, jonka ryhmä "Shadow Brokers" varasti ja laittoi julkiseen jakoon.
+Eternalblue hyödyntää haavoittuvuutta ```SMBv1```-verkkoprotokollassa. Se pystyy lähettämään haitallista koodia kohteeseen ([Burdova, C. 2020](https://www.avast.com/c-eternalblue)).
+
 ## e) Vertaile nmap:n omaa tiedostoon tallennusta (-oA foo) ja db_nmap:n tallennusta tietokantoihin. Mitkä ovat eri tiedostomuotojen ja Metasploitin tietokannan hyvät puolet?
