@@ -35,8 +35,49 @@ Lähteenä käytin Nmapin omilla sivuilla olevaa kirjaa, joten uskoisin sen olev
 - Isäntien etsiminen toteutuu ```ICMP```-pyynnöllä, verkkoliikenteen ohjauspyynnöllä (```TCP SYN```), kuittausviestillä (```TCP ACK```) ja ```ICMP```-aikaleimalla.
 
 - ```ICMP``` - Internet Control Message Protocol
-- ```TCP``` - Transmission Control Protocol
+- ```TCP``` - Transmission Control Protocol 
 
 
 ## b) Tallenna porttiskannauksen tuloksia Metasploitin tietokantoihin
 
+Ennen porttiskannausta loin tietokannan Kalilla seuraavanlailla:
+
+Käynnistin ```postgresql```-serverin komennolla: ```sudo systemctl start postgresql```
+
+Käynnistyksen jälkeen tarkistin vielä tilanteen komennolla: ```systemctl status postgresql```
+
+<img width="718" height="308" alt="image" src="https://github.com/user-attachments/assets/c383d6a3-cdf3-4e6b-8ae4-66c740c42a15" />
+
+Loin ja alustin Metasploitable Frameworkin tietokannan komennolla: ```sudo msfdb init```
+
+<img width="701" height="143" alt="image" src="https://github.com/user-attachments/assets/fff4265e-2ff8-4bd7-95a8-6705e0113f3f" />
+
+- Kuvassa näkyy polku konfigurointitiedostoon: ```/usr/share/metasploit-framework/config/database.yml```
+
+**Tietokannan konfigurointitiedosto:**
+
+<img width="411" height="398" alt="image" src="https://github.com/user-attachments/assets/7711693d-5673-4783-9ced-0aeb3430a9cd" />
+
+Avasin kalilla terminaalin ```root```-oikeuksilla ja käynnistin Metasploit Frameworkin komennolla: ```msfconsole```:
+
+<img width="567" height="154" alt="image" src="https://github.com/user-attachments/assets/70584bc2-5c50-4b36-a765-96accd24d769" />
+
+- I'm in!
+
+Tarkistin vielä tietokannan tilanteen komennolla: ```db_status```
+
+<img width="422" height="59" alt="image" src="https://github.com/user-attachments/assets/7edbc1f8-f14e-427f-827f-76c0c0e3bc8c" />
+
+Taustalla on jo Metasploitable 2 virtuaalikone käynnissä, joten aloitan testit. Varmistin Kalilla, ettei verkkoa ole lähiverkosta ulospäin pingaamalla nimipalveluihin:
+
+<img width="321" height="104" alt="image" src="https://github.com/user-attachments/assets/4e0e7b96-0f1c-48b0-b90b-cf489e54f297" />
+
+Kokeilin viime raportissa käyttämiäni parametrejä porttiskannaukseen: ```nmap -A -T4 -p-```
+
+<img width="730" height="300" alt="image" src="https://github.com/user-attachments/assets/e95dd95c-23f3-4feb-9ed2-fe3c2d292545" />
+
+- Valtavan paljon tavaraa jälleen.
+
+Olisin voinut ajaa kevyemmän skannin pelkällä versioskannauksella, mutta parametri ```-A``` pitää jo versioskannauksen sisällään.
+
+## c) Tarkastele Metasploitin tietokantoihin tallennettuja tietoja komennoilla "hosts" ja "services". Kokeile suodattaa näitä listoja tai hakea niistä.
