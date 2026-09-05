@@ -109,3 +109,21 @@ Voit esimerkiksi suodattaa listan näyttämään vain portit väliltä 23-660 ko
 <img width="813" height="279" alt="image" src="https://github.com/user-attachments/assets/dbe3e347-0b6e-446e-bc15-13d38bfe7ecb" />
 
 ## d) Internet famous. Etsi Metasploitablen mukana tulevista hyökkäyksistä (en: exploits; search) sellainen, joka on ollut julkisuudessa
+
+Varmaan suosituimpia hyökkäyksiä oli EternalBlue, jonka päätin etsiä Metasploitista:
+
+Aloitin hakemalla msfconsolessa komennolla: ```search type:exploit eternalblue``` 
+
+<img width="724" height="497" alt="image" src="https://github.com/user-attachments/assets/9c00b5ed-d8c7-4443-8f88-4c9d7badc666" />
+
+- Hakusanalla löytyi EternalBlue ja EternalRomance. Haussa esille tuli myös muita, kuten: EternalChampion ja EternalSynergy
+
+Molemmista on kirjoitettu ainakin [Iltasanomissa](https://www.is.fi/digitoday/tietoturva/art-2000005426332.html), sekä [BBC:llä](https://www.bbc.com/news/technology-39905509).
+
+Exploitista saa enemmän tietoa, kun avaa hyökkäyksen komennolla: ```use exploit/windows/smb/ms17_010_eternalblue``` ja sitten: ```info```
+
+<img width="541" height="306" alt="image" src="https://github.com/user-attachments/assets/b0522542-57b0-423a-8ca3-e1defd2226a2" />
+
+<img width="726" height="273" alt="image" src="https://github.com/user-attachments/assets/5b704c2c-55e8-45b1-99f5-1a06dbfd9f19" />
+
+## e) Vertaile nmap:n omaa tiedostoon tallennusta (-oA foo) ja db_nmap:n tallennusta tietokantoihin. Mitkä ovat eri tiedostomuotojen ja Metasploitin tietokannan hyvät puolet?
