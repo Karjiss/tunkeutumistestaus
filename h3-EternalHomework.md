@@ -265,7 +265,7 @@ Siirryin payloadiin komennolla: ```use 26``` ja avasin infon komennolla: ```info
 
 Vaihdoin työkalun "asetuksia" haluamakseni:
 
-**RHOSTS** = ```set RHOSTS 192.168.32.128```
+**RHOSTS** = ```set RHOSTS 192.168.32.128``` (Kohteen IP)
 
 **STOP_ON_SUCCESS** = ```set STOP_ON_SUCCESS true``` (Pysäyttää payloadin löytäessään oikean salasanan)
 
