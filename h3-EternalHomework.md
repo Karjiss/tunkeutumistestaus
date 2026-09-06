@@ -266,7 +266,9 @@ Siirryin payloadiin komennolla: ```use 26``` ja avasin infon komennolla: ```info
 Vaihdoin työkalun "asetuksia" haluamakseni:
 
 **RHOSTS** = ```set RHOSTS 192.168.32.128```
+
 **STOP_ON_SUCCESS** = ```set STOP_ON_SUCCESS true``` (Pysäyttää payloadin löytäessään oikean salasanan)
+
 **CreateSession** = ```set CreateSession true``` (Luo suoraan session, joka on yhdistetty tietokantaan)
 
 <img width="606" height="120" alt="image" src="https://github.com/user-attachments/assets/cd6c5305-ac6d-4dc0-af99-3c574857a66b" />
