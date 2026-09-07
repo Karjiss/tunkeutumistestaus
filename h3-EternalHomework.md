@@ -410,4 +410,7 @@ Kokeilin komentoa: ```less -R loki001.txt```
 
 - Vähemmän mössöä mutta ainakin komennoista saa selvää!
 
+- Testatussa lokissa on vielä zsh.history korruptoitunut, tulevien pitäisi olla kunnossa.
+
+##  k) Pivot point. Laita kaikki harjoituksen tiedostot (script -fa, nmap -oA...) samaan kansioon. Hae sopiva pivot point (sovellus, versio, osoite, MAC-numero) 'grep -r' -komennolla. Keksi uskottava esimerkkikysymys, johon haet vastausta
 
