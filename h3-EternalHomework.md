@@ -366,4 +366,48 @@ Komennolla ```cat server.key``` tulostin tiedoston sisällön:
 
 ## j) Tallenna shell-sessio tekstitiedostoon script-työkalulla (script -fa log001.txt) tai tmux:lla
 
+Ajattelin kokeilla, miltä näyttäisi tallentaa viime tehtävän vaiheet tekstitiedostoon.
+
+Aloitin käynnistämällä shellin tallennuksen komennolla: ```script -fa loki001.txt```
+
+Toistin edellisessä vaiheessa tehdyt vaiheet.
+
+Käytin komentoa ```exit``` ensin ulos meterpreteristä, sitten msfconsolesta ja lopuksi lopettamaan tallennus.
+
+<img width="535" height="102" alt="image" src="https://github.com/user-attachments/assets/39752ac7-9498-48b4-942f-bb9e05d682be" />
+
+- Huomasin errorin: "zsh: corrupt history file /root/.zsh_history".
+   - Tämä virhe ilmoittaa siitä, että komentohistoriasi on vahingoittunut tai korruptoitunut. ([GeeksForGeeks. 2025](https://www.geeksforgeeks.org/linux-unix/how-to-fix-a-corrupt-zsh-history-file/))
+
+
+Kokeilin lähteessä olevia korjauksia.
+
+<img width="392" height="242" alt="image" src="https://github.com/user-attachments/assets/9e901f72-7ed8-4ced-8f45-3a9146c3a69c" />
+
+```
+mv .zsh_history .zsh_history_bad = Tekee kopion korruptoituneesta tiedostosta uuden nimen alle.
+
+strings .zsh_history_bad > .zsh_history = Tekee uuden korjatun version tiedostosta.
+
+fc -R .zsh_history = Komento käskee zsh:ta lukemaan uuden korjatun historiatiedoston.
+
+rm ~/.zsh_history_bad = Poistaa korruptoituneen tiedoston.
+
+```
+- Virhettä ei enää tullut!
+
+Kokeilin lukea tallennettua tiedostoa komennolla: ```less loki001.txt```
+
+<img width="940" height="577" alt="image" src="https://github.com/user-attachments/assets/4acba6cc-255b-49dc-92a5-e92d262cf9c8" />
+
+- Aikamoista mössöä.
+
+Luin ```less``` komennon man-sivut kalissa, joista löysin parametrin ```-R```, jonka pitäisi korjata ongelma.
+
+Kokeilin komentoa: ```less -R loki001.txt```
+
+<img width="1082" height="733" alt="image" src="https://github.com/user-attachments/assets/c2a5e630-bd97-4931-8858-f9ec473aac76" />
+
+- Vähemmän mössöä mutta ainakin komennoista saa selvää!
+
 
