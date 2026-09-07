@@ -116,7 +116,7 @@ Aloitin hakemalla msfconsolessa komennolla: ```search type:exploit eternalblue``
 
 <img width="724" height="497" alt="image" src="https://github.com/user-attachments/assets/9c00b5ed-d8c7-4443-8f88-4c9d7badc666" />
 
-- Hakusanalla löytyi EternalBlue ja EternalRomance. Haussa esille tuli myös muita, kuten: EternalChampion ja EternalSynergy
+- Hakusanalla löytyi EternalBlue ja EternalRomance. Haussa esille tuli myös muita, kuten: EternalChampion ja EternalSynergy.
 
 Molemmista on kirjoitettu ainakin [Iltasanomissa](https://www.is.fi/digitoday/tietoturva/art-2000005426332.html)(EternalRomance), sekä [BBC:llä](https://www.bbc.com/news/technology-39905509)(EternalBlue).
 
@@ -224,7 +224,7 @@ g) Kerää levittäytymisessä (lateral movement) tarvittavaa tietoa metasploita
 
 Opin tunnilla, että ```/etc/shadow``` pitää sisällään salasanoja. Kokeilin salasanojen varastamista itse:
 
-Komennolla: ```cat /etc/shadow``` voin tulostaa kaikki salasanat
+Komennolla: ```cat /etc/shadow``` voin tulostaa kaikki salasanat.
 
 <img width="565" height="477" alt="image" src="https://github.com/user-attachments/assets/e4864cb9-6322-4c08-a856-5dc642883672" />
 
