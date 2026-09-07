@@ -364,6 +364,6 @@ Komennolla ```cat server.key``` tulostin tiedoston sisällön:
 
 - Tämä on kohteen yksityinen RSA-avain, jota voin hyödyntää SSH-yhteyden muodostamisessa.
 
-j) Tallenna shell-sessio tekstitiedostoon script-työkalulla (script -fa log001.txt) tai tmux:lla
+## j) Tallenna shell-sessio tekstitiedostoon script-työkalulla (script -fa log001.txt) tai tmux:lla
 
 
