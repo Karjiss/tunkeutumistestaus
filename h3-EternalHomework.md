@@ -220,7 +220,7 @@ Komennoilla: ```sysinfo``` ja ```getuid``` selvitin tietoa kohdekoneesta, sekä 
 
 <img width="430" height="153" alt="image" src="https://github.com/user-attachments/assets/0cc21409-f631-464e-bb18-8ff75a05c802" />
 
-g) Kerää levittäytymisessä (lateral movement) tarvittavaa tietoa metasploitablesta. Analysoi tiedot. Selitä, miten niitä voisi hyödyntää
+## g) Kerää levittäytymisessä (lateral movement) tarvittavaa tietoa metasploitablesta. Analysoi tiedot. Selitä, miten niitä voisi hyödyntää
 
 Opin tunnilla, että ```/etc/shadow``` pitää sisällään salasanoja. Kokeilin salasanojen varastamista itse:
 
