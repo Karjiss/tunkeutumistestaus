@@ -414,3 +414,95 @@ Kokeilin komentoa: ```less -R loki001.txt```
 
 ##  k) Pivot point. Laita kaikki harjoituksen tiedostot (script -fa, nmap -oA...) samaan kansioon. Hae sopiva pivot point (sovellus, versio, osoite, MAC-numero) 'grep -r' -komennolla. Keksi uskottava esimerkkikysymys, johon haet vastausta
 
+**Tallensin kaikki harjoituksen tiedostot Kalin kotihakemistoon pois rootista seuraavanlailla:**
+
+Loin kalin kotihakemistoon uuden hakemiston nimeltä "SUPERHAKKEROINTI" komennolla: ```mkdir /home/kali/SUPERHAKKEROINTI```
+
+<img width="315" height="43" alt="image" src="https://github.com/user-attachments/assets/2a5e05f3-91fc-401d-9b1d-9a8f476b0b77" />
+
+Käytin tiedostojen siirtämiseen komentoa: ```mk 
+
+<img width="685" height="102" alt="image" src="https://github.com/user-attachments/assets/fb7f92e4-c676-41f1-aa26-f0a98161e401" />
+
+Tarkistin tiedostojen sijainnin Kalin kotihakemistosta komennolla: ``ls``
+
+<img width="425" height="189" alt="image" src="https://github.com/user-attachments/assets/ab098ef3-c3aa-496f-92de-fc1bb75a9aa8" />
+
+- Onnistui!
+
+
+Seuraava "pivot point" olisi todennäköisesti SSH, sillä onnistuin varastamaan viimeisimmällä postgresql payloadilla kohteen yksityisen RSA-avaimen. Tämä mahdollistaisi minulle helpon pääsyn Metasploitableen jatkosssa. Minulla on myös "shadow"-tiedosto, jossa on tiivistetyt salassanat jotka voisin murtaa esim. Hashcatillä.
+
+Kysymys voisi olla:
+
+1. Mikä on kohdekoneen IP-osoite, MAC-osoite ja SSH-versio?
+
+Voin vastata kysymyksiin etsimällä tiedot näin:
+
+Siirryn harjoitushakemistoon komennolla: ```cd /home/kali/SUPERHAKKEROINTI``
+
+<img width="405" height="129" alt="image" src="https://github.com/user-attachments/assets/aa1c656e-760e-40dd-b0ba-147035fa3300" />
+
+Seuraavaksi haen ``grep -r``-komennolla tietoa, mitä tarvitsen:
+
+```grep -r``` = **Etsii/lukee tietoa koko hakemistosta.**
+
+<img width="667" height="194" alt="image" src="https://github.com/user-attachments/assets/a1a7facf-74c4-4c56-ae20-730ac489009a" />
+
+- Hyödyntäen greppiä ja hakusanoja pystyin etsimään haluamiani rivejä isosta kasasta dataa.
+
+## l) Attaaack! Mitä Mitre Attack taktiikoita ja tekniikoita käytit tässä harjoituksessa?
+
+Käytin harjoituksessa ainakin:
+
+### Discovery
+
+- [T1046](https://attack.mitre.org/techniques/T1046/) - **Network Service Discovery**
+
+  - Tekniikka, jolla skannasin kohteen portteja selvittääkseni kohteen heikkouksia.
+
+### Initial-Access
+
+- [T1190](https://attack.mitre.org/techniques/T1190/)  - **Exploit Public-Facing Application**
+
+  - Tällä tekniikalla hyväksikäytin kohteen heikkoutta sisäänpääsyyn.
+
+### Credential Access 
+
+- [T1003.008](https://attack.mitre.org/techniques/T1003/008/) - **OS Credential Dumping: /etc/passwd and /etc/shadow**
+
+  - Tätä tekniikkaa käytin, kun latasin ```/etc/shadow``` kohdekoneelta hyökkäyskoneelle.
+
+- [T1552](https://attack.mitre.org/techniques/T1552/) - **Unsecured Credentials**
+
+   - Löytäessäni ja ladatessani RSA-avaimen kohdekoneelta, käytin tätä tekniikkaa.
+
+## Lähteet
+
+BBC. 2017. Global cyber-attack: How roots can be traced to the US. Luettavissa: https://www.bbc.com/news/technology-39905509
+
+Burdova, C. Avast. 2020. What Is EternalBlue and Why Is the MS17-010 Exploit Still Relevant?. Luettavissa: https://www.avast.com/c-eternalblue
+
+GeeksForGeeks. 2025. How to fix a corrupt zsh history file. Luettavissa: https://www.geeksforgeeks.org/linux-unix/how-to-fix-a-corrupt-zsh-history-file/
+
+Iltasanomat. 2017. Digitoday: Tietoturva. Luettavissa: https://www.is.fi/digitoday/tietoturva/art-2000005426332.html
+
+Jaswal, N. 2020. Mastering Metasploit. O'Reilly. Luettavissa: https://learning.oreilly.com/library/view/mastering-metasploit/9781838980078/B15076_01_Final_ASB_ePub.xhtml#_idParaDest-31
+
+Karjalainen, J. 2026. h2-DORA-the-Explora.md. GitHub. Luettavissa: https://github.com/Karjiss/tunkeutumistestaus/blob/main/h2-DORA-the-Explora.md
+
+Karvinen, T. 2026. Tunkeutumistestaus. Luettavissa: https://terokarvinen.com/tunkeutumistestaus/
+
+Lyon, G. 2009. a. Nmap Book: Host Discovery. Luettavissa: https://nmap.org/book/man-host-discovery.html
+
+Lyon, G. 2009. b. Nmap Book: Output Formats. Luettavissa: https://nmap.org/book/man-output.html
+
+Metasploit. s.a. Meterpreter Documentation. Luettavissa: https://docs.metasploit.com/docs/using-metasploit/advanced/meterpreter/meterpreter.html
+
+MITRE ATT&CK. Exploit Public-Facing Application, Technique T1190. Luettavissa: https://attack.mitre.org/techniques/T1190/
+
+MITRE ATT&CK. Network Service Discovery, Technique T1046. Luettavissa: https://attack.mitre.org/techniques/T1046/
+
+MITRE ATT&CK. OS Credential Dumping: /etc/passwd and /etc/shadow, Sub-technique T1003.008. Luettavissa: https://attack.mitre.org/techniques/T1003/008/
+
+MITRE ATT&CK. Unsecured Credentials, Technique T1552. Luettavissa: https://attack.mitre.org/techniques/T1552/
