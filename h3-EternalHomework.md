@@ -242,7 +242,7 @@ Myös komennoilla: ```arp``` ja ```route``` voi löytää tärkeää tietoa, esi
 
 - Tässä labrassa ei löydy mitään, mutta oikeassa kohteessa voisit hyötyä erittäin paljon.
 
-h) Murtaudu Metasploitableen jollain toisella tavalla
+## h) Murtaudu Metasploitableen jollain toisella tavalla
 
 Tarkastelin ```services``` tietokantaa jälleen ja mielenkiintoinen havainto oli ```postgresql```. Jos sinne pääsisi, olisi käsissäni Metasploitablen tietokanta!
 
