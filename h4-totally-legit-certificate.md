@@ -24,7 +24,7 @@
 -
 
 
-### PortSwigger Academy: ([PortSwigger LTD 2026](https://portswigger.net/web-security))
+### PortSwigger Academy ([PortSwigger LTD 2026](https://portswigger.net/web-security))
 
 **[Insecure Direct Object Reference](https://portswigger.net/web-security/access-control/idor)**
 
