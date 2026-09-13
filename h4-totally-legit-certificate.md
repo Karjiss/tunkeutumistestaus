@@ -55,7 +55,9 @@
   - **DOM-based cross-site scripting** = Verkkosovellus sisältää client-side JavaScript koodia, joka sisältää tietoa epäluotettavasta lähteestä, yleensä kirjoittaen dataa takaisin DOM-puuhun (Ohjelmointirajapinta).
 
   
+## a) Totally Legit Sertificate
 
+Tässä tehtävässä asensin OWASP ZAPin Linuxilleni.
 
 
 
