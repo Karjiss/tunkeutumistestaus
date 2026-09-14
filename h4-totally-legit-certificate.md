@@ -57,7 +57,63 @@
   
 ## a) Totally Legit Sertificate
 
-Tässä tehtävässä asensin OWASP ZAPin Linuxilleni.
+Tässä tehtävässä asensin OWASP ZAPin Kali Linuxille. 
+
+Kali Linuxilla lataus hoitui helposti komennolla ```sudo apt-get install zaproxy```:
+
+<img width="712" height="433" alt="image" src="https://github.com/user-attachments/assets/ac9b5c41-b243-4758-ad10-4f6ce8fd9d58" />
+
+Käynnistin ZAPin ```zap```-komenolla. Sitten selvitinm miten luodaan CA-Sertifikaatti ZAP:issa. Löysin ohjeet ZAP:in sivuilta ([Zaproxy s.a](https://www.zaproxy.org/docs/desktop/addons/network/options/servercertificates/)).
+
+ZAP:issä valitsin ylävalikosta ```Tools --> Options```
+
+<img width="793" height="594" alt="image" src="https://github.com/user-attachments/assets/2bfa6d34-4da4-4693-a5cf-efeb21a45568" />
+
+Kirjoitin asetusten hakuun "CA Certificate":
+
+<img width="732" height="334" alt="image" src="https://github.com/user-attachments/assets/12ae79f5-bb14-474c-97e8-56e20e797d51" />
+
+- Polku = ```Network --> Server Certificates```
+- Kohde löytynyt!
+
+Tallensin sertifikaatin kotihakemistooni painamalla: ```Save```-nappia.
+
+<img width="694" height="589" alt="image" src="https://github.com/user-attachments/assets/2bce4e7f-8b63-476c-a724-3a25b7972e77" />
+
+
+CA-sertifikaatti piti asentaa vielä selaimelle, joten hommiin!
+
+Hakkasin päätä näppäimistöön hetken aikaa, kunnes löysin tehtävien vinkkiosiosta opastuksia.
+
+Avasin Firefoxin "Settings" valikon, josta hain "Certificates".
+
+<img width="1009" height="727" alt="image" src="https://github.com/user-attachments/assets/92986953-4869-4515-85c1-f4898d3c77e4" />
+
+- Huokaisin helpotuksesta.
+
+Seuraavaksi klikkasin ```View Certificates``` --> ```Import```
+
+<img width="656" height="461" alt="image" src="https://github.com/user-attachments/assets/970ce50c-973d-4758-9c05-322fbde5b897" />
+
+Import välilehdeltä valitsin tallentamani CA-Sertifikaatin kotihakemistostani.
+
+<img width="788" height="309" alt="image" src="https://github.com/user-attachments/assets/445d1193-0370-496a-8531-4f8432a54192" />
+
+- Annoin ZAProxylle oikeudet tunnistaa nettisivuja, mutta en sähköposteja.
+
+Painoin ```OK```, sitten tarkistin vielä sertifikaattilistalta CA-sertifikaatin olemassaolon.
+
+<img width="665" height="470" alt="image" src="https://github.com/user-attachments/assets/edb14926-cccb-414e-ad90-a3ce50dbf43b" />
+
+- Siellä lepää.
+
+Nyt ZAP piti saada tallentamaan kuvia, sekä todistaa toimivuus.
+
+Teron vinkeissä oli riittävät ohjeet kuvankaappauksia varten, ZAP asetuksissa: ```Tools --> Display```, ja ruksi ruutuun: ```Process Images in HTTP requests/responses```
+
+<img width="748" height="582" alt="image" src="https://github.com/user-attachments/assets/54249612-f8dd-41ff-b91f-af17ea0af434" />
+
+
 
 
 
