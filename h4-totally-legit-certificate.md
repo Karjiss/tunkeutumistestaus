@@ -113,6 +113,24 @@ Teron vinkeissä oli riittävät ohjeet kuvankaappauksia varten, ZAP asetuksissa
 
 <img width="748" height="582" alt="image" src="https://github.com/user-attachments/assets/54249612-f8dd-41ff-b91f-af17ea0af434" />
 
+Kävin myös säätämässä vinkkien mukaisesti Firefoxin konfiguraatiosta kohdan: ```network.proxy.allow_hijacking_localhost``` "true"-vaihtoehtoon.
+
+<img width="980" height="219" alt="image" src="https://github.com/user-attachments/assets/7ce4777e-31f8-483f-90ac-206f3e94b191" />
+
+Aloitin uuden session klikkaamalla ```File --> New Session``` ja ```Ok```. Valitsin vaihtoehdon "No, I do not want to persist this session at this moment in time".
+
+<img width="1269" height="720" alt="image" src="https://github.com/user-attachments/assets/93d2755c-e5bd-4eef-b0cd-2a12b1a213b7" />
+
+Syötin myös Quick Startissa olevaan "URL to explore"-kohtaan Metasploitable2 IP-osoitteen ja painoin ```Launch Browser```.
+
+Selailin vähän ja katsoin ZAPin tuloksia:
+
+<img width="1758" height="840" alt="image" src="https://github.com/user-attachments/assets/ab5f845e-d54c-4ba6-aa8f-85aa22268e95" />
+
+- Paljon HTTP-pyyntöjä.
+
+## b) Kettumaista
+
 
 
 
