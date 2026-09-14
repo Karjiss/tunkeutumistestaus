@@ -107,9 +107,10 @@ Painoin ```OK```, sitten tarkistin vielä sertifikaattilistalta CA-sertifikaatin
 
 - Siellä lepää.
 
-Nyt ZAP piti saada tallentamaan kuvia, sekä todistaa toimivuus.
+Nyt ZAP piti saada tallentamaan kuvia, sekä todistaa sovelluksen toimivuus.
+Teron vinkeissä oli riittävät ohjeet kuvankaappauksia varten. 
 
-Teron vinkeissä oli riittävät ohjeet kuvankaappauksia varten, ZAP asetuksissa: ```Tools --> Display```, ja ruksi ruutuun: ```Process Images in HTTP requests/responses```
+ZAP asetuksissa: ```Tools --> Display```, ja ruksi ruutuun: ```Process Images in HTTP requests/responses```
 
 <img width="748" height="582" alt="image" src="https://github.com/user-attachments/assets/54249612-f8dd-41ff-b91f-af17ea0af434" />
 
