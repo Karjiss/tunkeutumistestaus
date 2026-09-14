@@ -83,7 +83,7 @@ Tallensin sertifikaatin kotihakemistooni painamalla: ```Save```-nappia.
 
 CA-sertifikaatti piti asentaa vielä selaimelle, joten hommiin!
 
-Hakkasin päätä näppäimistöön hetken aikaa, kunnes löysin tehtävien vinkkiosiosta opastuksia.
+Hakkasin päätä näppäimistöön hetken aikaa, kunnes löysin tehtävien [vinkkiosiosta](https://terokarvinen.com/tunkeutumistestaus/) opastuksia.
 
 Avasin Firefoxin "Settings" valikon, josta hain "Certificates".
 
@@ -132,13 +132,57 @@ Selailin vähän ja katsoin ZAPin tuloksia:
 
 ## b) Kettumaista
 
+Tässä tehtävässä asensin Firefoxiin lisäosan nimeltä: "[FoxyProxy Standard](https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/) (Jung, E. 2026)".
+
+Linkin takaa löytyy Firefoxin laajennuskaupan sivu, josta latasin FoxyProxyn klikkaamalla kohdasta: ```Add to Firefox```.
+
+<img width="477" height="172" alt="image" src="https://github.com/user-attachments/assets/ce7dfbef-bd43-42f5-986b-b8ca543712da" />
+
+Tehtävänä oli myös lisätä ZAP FoxyProxyn proxyksi, joten menin muuttamaan FoxyProxyn asetuksia:
+
+Firefoxin oikeasta yläkulmasta klikkaamalla FoxyProxyn kuvaketta ja sitten ```Options``` päästään asetuksiin.
+
+Tässä vaiheessa kaipasin jonkin verran apua, sillä aivot löivät tyhjää "Proxy by Patterns" osalta. Löysin kuitenkin viimevuoden toteutuksen [raportin] (https://github.com/veitim/tunkeutumistestaus/blob/main/h2_t%C3%A4ysin_laillinen_sertifikaatti.md)(Veijalainen 2026) josta löysin asetukset FoxyProxyyn:
+
+
+<img width="956" height="454" alt="image" src="https://github.com/user-attachments/assets/d34696b3-6322-483e-899e-9a41e6e920b9" />
+
+
+- ZAP haetaan localhostista portista 8080.
+- Lisätään "Proxy by Patterns" -osioon IP-osoitteet, joista halutaan tietoa ZAP:piin.
+
+Nyt sitten kokeilemaan!
+
+Oikeasta yläkulmasta valitsen FoxyProxin kuvakkeen, josta otan käyttöön ```Proxy by Patterns``` -vaihtoehdon.
+
+
+
+Seuraavaksi kokeilin ensin Metasploitablen osoitetta, jonka jälkeen kokeilin Googlen. Ymmärtääkseni nyt ZAP:in pitäisi saada tieto vain Metasploitablesta, mutta ei mistään muusta.
+
+<img width="1336" height="711" alt="image" src="https://github.com/user-attachments/assets/c5e4703c-d3d1-408b-b763-99e552521005" />
+
+- ZAP saa dataa Metasploitablen osoitteesta.
+
+<img width="1403" height="714" alt="image" src="https://github.com/user-attachments/assets/65f94c57-70d1-4d31-9b0e-087c7a8b0965" />
+
+- ZAP ei saa dataa Googlen osoitteesta, eli kaikki toimii.
+
+## PortSwigger Labs - Ratkaise tehtävät & Selitä ratkaisusi
+
+
+
 
 
 
 
 ## Lähteet
 
+Karvinen, Tero. 2026. Tunkeutumistestaus. Luettavissa: https://terokarvinen.com/tunkeutumistestaus/
+
+Jung, Eric. 2026 FoxyProxy Standard. Firefox Browser Add-ons. Luettavissa: https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/
+
 OWASP 2021: OWASP Top 10:2021. A01 Broken Access Control. Luettavissa: https://top10.owasp.org/2021/A01_2021-Broken_Access_Control/
 
-Karvinen, Tero. 2026. Tunkeutumistestaus. Luettavissa:
+
+
 
