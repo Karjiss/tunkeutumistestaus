@@ -142,7 +142,7 @@ Tehtävänä oli myös lisätä ZAP FoxyProxyn proxyksi, joten menin muuttamaan 
 
 Firefoxin oikeasta yläkulmasta klikkaamalla FoxyProxyn kuvaketta ja sitten ```Options``` päästään asetuksiin.
 
-Tässä vaiheessa kaipasin jonkin verran apua, sillä aivot löivät tyhjää "Proxy by Patterns" osalta. Löysin kuitenkin viimevuoden toteutuksen [raportin] (https://github.com/veitim/tunkeutumistestaus/blob/main/h2_t%C3%A4ysin_laillinen_sertifikaatti.md)(Veijalainen 2026) josta löysin asetukset FoxyProxyyn:
+Tässä vaiheessa kaipasin jonkin verran apua, sillä aivot löivät tyhjää "Proxy by Patterns" osalta. Löysin kuitenkin viimevuoden toteutuksen [raportin](https://github.com/veitim/tunkeutumistestaus/blob/main/h2_t%C3%A4ysin_laillinen_sertifikaatti.md) (Veijalainen 2026) josta löysin asetukset FoxyProxyyn:
 
 
 <img width="956" height="454" alt="image" src="https://github.com/user-attachments/assets/d34696b3-6322-483e-899e-9a41e6e920b9" />
@@ -219,7 +219,7 @@ Kirjoitin kommenttikenttään koodin: ```<script>alert()</script>```. Oikeassa t
 
 Aikaisemmassa tehtävässä jo mainitsin ```alert```-funktiosta testauksena. Se on nopeasti kirjoitettava vaaraton testiskripti. Jos se menee läpi, voit kokeilla jotain vaarallisempaa.
 
-[Mediumin](https://medium.com/@adityabhatt3010/the-art-of-xss-hacking-from-basics-to-advanced-exploits-6a3276f81aaa) artikkelissa mainitaan esimerkiksi näistä evästeitä kaappaavista skripteistä, joilla voidaan saada muiden tilit omaan käyttöön. XSS-hyökkäyksiä on valtava määrä, yksinkertaisia ja monimutkaisia. Tällainen haavoittuvuus on erittäin vakava, sillä jossain miljoonien käyttäjien verkkosivuilla ajettu hyökkäys voi vaaraantaa kaikkien käyttäjätilit, ellei jopa enemmän.
+Mediumin ([Bhatt 2025](https://medium.com/@adityabhatt3010/the-art-of-xss-hacking-from-basics-to-advanced-exploits-6a3276f81aaa)) artikkelissa mainitaan esimerkiksi näistä evästeitä kaappaavista skripteistä, joilla voidaan saada muiden tilit omaan käyttöön. XSS-hyökkäyksiä on valtava määrä, yksinkertaisia ja monimutkaisia. Tällainen haavoittuvuus on erittäin vakava, sillä jossain miljoonien käyttäjien verkkosivuilla ajettu hyökkäys voi vaaraantaa kaikkien käyttäjätilit, ellei jopa enemmän.
 
 ## PortSwigger - Path traversal
 
