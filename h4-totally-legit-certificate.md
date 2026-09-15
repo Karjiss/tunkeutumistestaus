@@ -65,7 +65,7 @@ Kali Linuxilla lataus hoitui helposti komennolla ```sudo apt-get install zaproxy
 
 Käynnistin ZAPin ```zap```-komenolla. Sitten selvitinm miten luodaan CA-Sertifikaatti ZAP:issa. Löysin ohjeet ZAP:in sivuilta ([Zaproxy s.a](https://www.zaproxy.org/docs/desktop/addons/network/options/servercertificates/)).
 
-ZAP:issä valitsin ylävalikosta ```Tools --> Options```
+ZAP:issä valitsin ylävalikosta ```Tools --> Options```.
 
 <img width="793" height="594" alt="image" src="https://github.com/user-attachments/assets/2bfa6d34-4da4-4693-a5cf-efeb21a45568" />
 
@@ -91,7 +91,7 @@ Avasin Firefoxin "Settings" valikon, josta hain "Certificates".
 
 - Huokaisin helpotuksesta.
 
-Seuraavaksi klikkasin ```View Certificates``` --> ```Import```
+Seuraavaksi klikkasin: ```View Certificates``` --> ```Import```
 
 <img width="656" height="461" alt="image" src="https://github.com/user-attachments/assets/970ce50c-973d-4758-9c05-322fbde5b897" />
 
