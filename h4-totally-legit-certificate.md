@@ -149,7 +149,7 @@ Tässä vaiheessa kaipasin jonkin verran apua, sillä aivot löivät tyhjää "P
 
 
 - ZAP haetaan localhostista portista 8080.
-- Lisätään "Proxy by Patterns" -osioon IP-osoitteet, joista halutaan tietoa ZAP:piin.
+- Lisätään "Proxy by Patterns" -osioon IP-osoitteet, joista halutaan tietoa ZAP:piin (Metasploitable ja PortSwigger).
 
 Nyt sitten kokeilemaan!
 
@@ -169,7 +169,114 @@ Seuraavaksi kokeilin ensin Metasploitablen osoitetta, jonka jälkeen kokeilin Go
 
 ## PortSwigger Labs - Ratkaise tehtävät & Selitä ratkaisusi
 
+Seuraavaksi aloin ratkaisemaan PortSwiggerin labroja, niitä on tullut aikaisemmilla toteutuksilla ja vapaa-ajalla pari selvitettyä.
 
+### c) [Reflected XSS into HTML context with nothing encoded](https://portswigger.net/web-security/cross-site-scripting/reflected/lab-html-context-nothing-encoded)
+
+  Labrojen aiheista löytyy hyvin tietoa tehtävän x) lähteistä. ALoitin tämän labin kirjautumalla PortSwiggeriin tunnuksillani.
+  
+  Tehtävänannon mukaan halutaan toteuttaa "scripting-attack", joka sisältää ```alert```-funktion.
+
+  Selityksiä ja erilaisia hyökkäyksiä löytyy [OWASP](https://community.owasp.org/attacks/xss/):in dokumentaatiosta aiheesta.
+  
+  Labran verkkosivulla on mahdollista kirjoittaa koodia hakukenttään ja se myös näkyy suoraan urlissa muodossa: ```https://0aec001a03a07dc780bc4e5200fe0014.web-security-academy.net/?search=kissatkoiria```.
+  Voit siis ajaa koodia suoraan urlista tai hakukentästä.  kokeilin hakukentän kautta koodin ajamista hakusanalla/koodilla: ```<script>alert('haloohaloo')</script>```
+
+  <img width="516" height="172" alt="image" src="https://github.com/user-attachments/assets/695aeb15-6298-475b-b0ed-d1f8d22cfcbf" />
+
+  - Ajo onnistui, luoden "hälytyksen" verkkosivulta käyttäjälle.
+  - Saman koodin pystyy syöttämään myös URL:iin ```?search=``` jälkeen.
+  
+  <img width="1277" height="208" alt="image" src="https://github.com/user-attachments/assets/21e5b722-8572-49e3-81eb-1fd998331f5a" />
+
+  - Labra selvitetty!
+
+### d) [Stored XSS into HTML context with nothing encoded](https://portswigger.net/web-security/cross-site-scripting/stored/lab-html-context-nothing-encoded)
+
+Tiivistelmässäkin mainitsemani Stored XSS on heikkous, jossa hyökkääjä tallentaa koodia palvelimelle, sitten se jää sinne muiden uhrien ajettavaksi aina, kun sivu avataan.
+
+Tässä labrassa on Stored XSS heikkous ja tehtävänannossa pyydetään tulostamaan ```alert```-funktio kommenttikentän kautta. Eli haitallinen koodi voidaan tallentaa kommenttikenttään ja kaikki käyttäjät ajavat sen sivun auetessa.
+
+<img width="768" height="556" alt="image" src="https://github.com/user-attachments/assets/3c6e4347-39e5-42fc-80d9-2cfc84475824" />
+
+
+
+Kokeilin samankaltaista hyökkäystä tähän labraan, kuin aikaisempaankin.
+
+Avasin labrasivulla ensimmäisen postauksen, josta siirryin kommenttiosioon.
+
+Kirjoitin kommenttikenttään koodin: ```<script>alert()</script>```. Oikeassa tapauksessa sisälle voitaisiin tehdä esimerkiksi evästeitä kaappaava skripti. Tämä on haitaton "testi"-skripti. Muita esimerkkejä löytyi OWASP:in [Web Security Testing Guidesta](https://owasp.github.io/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/07-Input_Validation_Testing/02-Testing_for_Stored_Cross_Site_Scripting.html)(OWASP s.a).
+
+<img width="813" height="615" alt="image" src="https://github.com/user-attachments/assets/5f0d3675-88fb-402a-af8c-60ba1609d729" />
+
+<img width="518" height="128" alt="image" src="https://github.com/user-attachments/assets/24d50453-2e94-44be-a0fe-46acd877936c" />
+
+- Ponnahdusikkuna pomppaa nyt aina, kun avaan tämän postauksen.
+- Lippu saatu!
+
+
+### e) Selitä esimerkin avulla, mitä hyökkääjä hyötyy XSS-hyökkäyksestä
+
+Aikaisemmassa tehtävässä jo mainitsin ```alert```-funktiosta testauksena. Se on nopeasti kirjoitettava vaaraton testiskripti. Jos se menee läpi, voit kokeilla jotain vaarallisempaa.
+
+[Mediumin](https://medium.com/@adityabhatt3010/the-art-of-xss-hacking-from-basics-to-advanced-exploits-6a3276f81aaa) artikkelissa mainitaan esimerkiksi näistä evästeitä kaappaavista skripteistä, joilla voidaan saada muiden tilit omaan käyttöön. XSS-hyökkäyksiä on valtava määrä, yksinkertaisia ja monimutkaisia. Tällainen haavoittuvuus on erittäin vakava, sillä jossain miljoonien käyttäjien verkkosivuilla ajettu hyökkäys voi vaaraantaa kaikkien käyttäjätilit, ellei jopa enemmän.
+
+## PortSwigger - Path traversal
+
+### f) [File path traversal, simple case](https://portswigger.net/web-security/file-path-traversal/lab-simple)
+
+Path traversal on haavoittuvuus joka syntyy, kun verkkosovellus käyttää syötettä suoraan tiedostojen avaamiseen tai lukuun ([PortSwigger 2026](https://portswigger.net/web-security/file-path-traversal#what-is-path-traversal)).
+
+Tässä labrassa tehtävänä on saada tulostettua ```/etc/passwd```-tiedosto. Tiedostoon pitäisi päästä tuotekuvien kautta.
+File traversalia olen joskus harjoitellut [pws.college](https://pwn.college/) Linux-ympäristössä.
+
+Aloitin avaamalla ZAP:in, jonka jälkeen avasin labrasivulla kuvan saadakseni proxyyni dataa.
+
+<img width="1081" height="474" alt="image" src="https://github.com/user-attachments/assets/167e8d2d-40ef-48c0-9b75-a04cd96470ce" />
+
+Klikkasin ```GET```-pyyntöä ja painoin näppäimistöltäni näppäimiä: ```CTRL + W``` avatakseni "Requester" näkymän.
+
+<img width="523" height="254" alt="image" src="https://github.com/user-attachments/assets/edd2a471-c679-4266-87cb-6e229f4229eb" />
+
+- Muuttamalla maalattua ```filename=```-kohtaa pystyn manipuloimaan kohteesta tulevia tiedostoja.
+
+Voit liikkua hakemistopolkuja ylöspäin käyttäen ```../```-polkua. 
+
+Päästäkseni ylöspäin juurihakemistoon ja sieltä ```/etc/passwd```, voin kokeilla: ```../../../etc/passwd```. Täten pompin ylöspäin ja sitten lähden hakemistoihin, mihin haluan.
+
+Korvasin ```filetype```-kohdan:
+
+<img width="513" height="249" alt="image" src="https://github.com/user-attachments/assets/a47c1ad2-85fc-476c-85e3-875a1c7340d8" />
+
+Ajoin pyynnön ja tarkastelin "History"-osion syötteen, muutin myös kohdan: ```Body:``` tekstiksi.
+
+<img width="1271" height="759" alt="image" src="https://github.com/user-attachments/assets/65941fd0-60bc-4b6a-932e-396109ced837" />
+
+- Kappas vain, siellähän on salasanoja!
+
+<img width="659" height="193" alt="image" src="https://github.com/user-attachments/assets/6ea45fb3-4fa1-492c-9bcf-c885c55ad36a" />
+
+- Lippulappu!
+
+
+### g) [File path traversal, traversal sequences blocked with absolute path bypass](https://portswigger.net/web-security/file-path-traversal/lab-absolute-path-bypass)
+
+Tämä haavoittuvuus on samanlainen, mutta suorat polut ovat estetty, eli ei ylöspäin liikkumista ```../../../``` hyödyttäen.
+
+Aloitin samalla tavalla kuin aiemmin, eli avaan kuvatiedoston ja tarkastelen URL:ia ja ZAP-dataa:
+
+<img width="890" height="550" alt="image" src="https://github.com/user-attachments/assets/abffcaa3-3d8e-475f-9c5f-a399b5b84407" />
+
+- Samanlainen tilanne kuin aiemmin, mutta suorat polut on estetty.
+
+Ennen pari path traversal lippua saaneena uskoisin, että "filtterin" läpi voi yrittää kiertää. PortSwiggerin [path traversal](https://portswigger.net/web-security/file-path-traversal#what-is-path-traversal) osiossa puhutaan esimerkiksi "nested traversal" tekniikasta, jolla ohitetaan filttereitä käyttämällä vaikka: ```....//..\```. Tässä tapauksessa en löytänyt tiedostoa muuttamalla merkkejä.
+
+Tehtävänannossa kuitenkin kerrottiin, että path traversal on "blocked" mutta tiedostoja käsitellään oletushakemistossa. Aikaisemmin mainitussa path traversal osiossa myös mainittiin, että voit päästä absoluuttisen polun avulla lipullesi, vaikka suora polku olisi estetty. Kokeilin siis juurihakemistosta absoluuttista ```/etc/passwd```-polkua:
+
+<img width="592" height="406" alt="image" src="https://github.com/user-attachments/assets/e10e6327-b6fc-43e9-84f7-0a8a82168d05" />
+
+
+<img width="1015" height="196" alt="image" src="https://github.com/user-attachments/assets/7861dc25-6544-4514-8745-7a7076cd9be0" />
 
 
 
