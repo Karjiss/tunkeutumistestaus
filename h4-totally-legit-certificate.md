@@ -184,5 +184,9 @@ Jung, Eric. 2026 FoxyProxy Standard. Firefox Browser Add-ons. Luettavissa: https
 OWASP 2021: OWASP Top 10:2021. A01 Broken Access Control. Luettavissa: https://top10.owasp.org/2021/A01_2021-Broken_Access_Control/
 
 
+Veijalainen, T. 2025. Tunkeutumistestaus. Luettavissa: https://github.com/veitim/tunkeutumistestaus/blob/main/h2_t%C3%A4ysin_laillinen_sertifikaatti.md
+
+
+Portswigger. https://portswigger.net/web-security
 
 
