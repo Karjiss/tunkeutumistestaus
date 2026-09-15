@@ -269,9 +269,7 @@ Aloitin samalla tavalla kuin aiemmin, eli avaan kuvatiedoston ja tarkastelen URL
 
 - Samanlainen tilanne kuin aiemmin, mutta suorat polut on estetty.
 
-Ennen pari path traversal lippua saaneena uskoisin, että "filtterin" läpi voi yrittää kiertää. PortSwiggerin [path traversal](https://portswigger.net/web-security/file-path-traversal#what-is-path-traversal) osiossa puhutaan esimerkiksi "nested traversal" tekniikasta, jolla ohitetaan filttereitä käyttämällä vaikka: ```....//..\```. Tässä tapauksessa en löytänyt tiedostoa muuttamalla merkkejä.
-
-Tehtävänannossa kuitenkin kerrottiin, että path traversal on "blocked" mutta tiedostoja käsitellään oletushakemistossa. Aikaisemmin mainitussa path traversal osiossa myös mainittiin, että voit päästä absoluuttisen polun avulla lipullesi, vaikka suora polku olisi estetty. Kokeilin siis juurihakemistosta absoluuttista ```/etc/passwd```-polkua ja etenin samalla tavalla, kuin aiemmassa tehtävässä:
+Tehtävänannossa kuitenkin kerrottiin, että path traversal on "blocked" mutta tiedostoja käsitellään oletushakemistossa. PortSwiggerin [path traversal](https://portswigger.net/web-security/file-path-traversal#what-is-path-traversal) osiossa myös mainittiin, että voit päästä absoluuttisen polun avulla lipullesi, vaikka suora polku olisi estetty. Kokeilin siis juurihakemistosta absoluuttista ```/etc/passwd```-polkua ja etenin samalla tavalla, kuin aiemmassa tehtävässä:
 
 <img width="592" height="406" alt="image" src="https://github.com/user-attachments/assets/e10e6327-b6fc-43e9-84f7-0a8a82168d05" />
 
@@ -281,6 +279,19 @@ Tehtävänannossa kuitenkin kerrottiin, että path traversal on "blocked" mutta 
 - Olin vähän hämmentynyt tämän tehtävän takia, kun tuntui olevan helpompi kuin aikaisempi.
 - Lippu kuitenkin saatu.
 
+### h) [File path traversal, traversal sequences stripped non-recursively](https://portswigger.net/web-security/file-path-traversal/lab-sequences-stripped-non-recursively)
+
+Tehtävänannon mukaan tässä labissa verkkosovellus poistaa käyttäjän antamat siirtymisparametrit.
+
+Aloitin taas sniffailemalla ZAP:illa tuotekuvaa ja avaamalla sen requesterissa.
+
+Aloin kokeilemaan eri ratkaisuja syötteen manipuloimiseen. Ennen pari path traversal lippua saaneena uskoisin, että "filtterin" läpi voi yrittää kiertää. PortSwiggerin [path traversal](https://portswigger.net/web-security/file-path-traversal#what-is-path-traversal) osiossa puhutaan esimerkiksi "nested traversal" tekniikasta, jolla ohitetaan filttereitä käyttämällä vaikka: ```....//../```.  Toimii sillä periaatteella, että sovellus poistaa syötteestä ``../``, mutta ei koko pitkää syötettä (?).
+
+Kokeilen siis seuraavanlaista syötettä requesterilla: ```....//....//....//etc/passwd```
+
+<img width="1270" height="742" alt="image" src="https://github.com/user-attachments/assets/ece1725a-da6e-4f36-8e81-ccf4392acedf" />
+
+- Toimii!
 
 
 ## Lähteet
