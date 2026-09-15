@@ -338,16 +338,49 @@ Hyökkäys siis toimii niinkin helposti, kuin muokkaamalla tiedostonimeä, jota 
 
 ## Lähteet
 
-Karvinen, Tero. 2026. Tunkeutumistestaus. Luettavissa: https://terokarvinen.com/tunkeutumistestaus/
+Bhatt, A. 2025. The Art of XSS Hacking: From Basics to Advanced Exploits. Medium. Luettavissa: https://medium.com/@adityabhatt3010/the-art-of-xss-hacking-from-basics-to-advanced-exploits-6a3276f81aaa
 
-Jung, Eric. 2026 FoxyProxy Standard. Firefox Browser Add-ons. Luettavissa: https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/
+Jung, E. 2026. FoxyProxy Standard. Firefox Add-ons. Luettavissa: https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/
 
-OWASP 2021: OWASP Top 10:2021. A01 Broken Access Control. Luettavissa: https://top10.owasp.org/2021/A01_2021-Broken_Access_Control/
+Karvinen, T. 2026. Tunkeutumistestaus. Kurssisivusto. Luettavissa: https://terokarvinen.com/tunkeutumistestaus/
+
+OWASP. s.a. Attacks: XSS. OWASP Community. Luettavissa: https://community.owasp.org/attacks/xss/
+
+OWASP. s.a. Web Security Testing Guide: Testing for Stored Cross Site Scripting. OWASP Foundation. Luettavissa: https://owasp.github.io/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/07-Input_Validation_Testing/02-Testing_for_Stored_Cross_Site_Scripting.html
+
+OWASP Top 10 Team. 2021. Broken Access Control. OWASP Top 10. Luettavissa: https://top10.owasp.org/2021/A01_2021-Broken_Access_Control/
+
+PortSwigger. 2026. Cross-Site Scripting (XSS). Web Security Academy. Luettavissa: https://portswigger.net/web-security/cross-site-scripting
+
+PortSwigger. 2026. File Path Traversal. Web Security Academy. Luettavissa: https://portswigger.net/web-security/file-path-traversal
 
 
-Veijalainen, T. 2025. Tunkeutumistestaus. Luettavissa: https://github.com/veitim/tunkeutumistestaus/blob/main/h2_t%C3%A4ysin_laillinen_sertifikaatti.md
+PortSwigger. 2026. Insecure Direct Object Reference (IDOR). Web Security Academy. Luettavissa: https://portswigger.net/web-security/access-control/idor
 
 
-Portswigger. https://portswigger.net/web-security
+PortSwigger Ltd. 2026. Web Security Academy. PortSwigger. Luettavissa: https://portswigger.net/web-security
+
+pwn.college. Learn to Hack. Luettavissa: https://pwn.college/
+
+Veijalainen. 2026. h2_täysin_laillinen_sertifikaatti.md. GitHub. Luettavissa: https://github.com/veitim/tunkeutumistestaus/blob/main/h2_t%C3%A4ysin_laillinen_sertifikaatti.md
+
+Zaproxy. s.a. Server Certificates. OWASP ZAP. Luettavissa: https://www.zaproxy.org/docs/desktop/addons/network/options/servercertificates/
+
+
+## Labrat
+
+PortSwigger. 2026. File Path Traversal - Absolute Path Bypass. Web Security Academy. Luettavissa: https://portswigger.net/web-security/file-path-traversal/lab-absolute-path-bypass
+
+PortSwigger. 2026. File Path Traversal - Simple Case. Web Security Academy. Luettavissa: https://portswigger.net/web-security/file-path-traversal/lab-simple
+
+PortSwigger. 2026. File Path Traversal - Sequences Stripped Non-Recursively. Web Security Academy. Luettavissa: https://portswigger.net/web-security/file-path-traversal/lab-sequences-stripped-non-recursively
+
+PortSwigger. 2026. Insecure Direct Object References Lab. Web Security Academy. Luettavissa: https://portswigger.net/web-security/access-control/lab-insecure-direct-object-references
+
+PortSwigger. 2026. Reflected XSS into HTML context with nothing encoded. Web Security Academy. Luettavissa: https://portswigger.net/web-security/cross-site-scripting/reflected/lab-html-context-nothing-encoded
+
+PortSwigger. 2026. Stored XSS into HTML context with nothing encoded. Web Security Academy. Luettavissa: https://portswigger.net/web-security/cross-site-scripting/stored/lab-html-context-nothing-encoded
+
+
 
 
