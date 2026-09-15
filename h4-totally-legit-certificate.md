@@ -271,14 +271,15 @@ Aloitin samalla tavalla kuin aiemmin, eli avaan kuvatiedoston ja tarkastelen URL
 
 Ennen pari path traversal lippua saaneena uskoisin, että "filtterin" läpi voi yrittää kiertää. PortSwiggerin [path traversal](https://portswigger.net/web-security/file-path-traversal#what-is-path-traversal) osiossa puhutaan esimerkiksi "nested traversal" tekniikasta, jolla ohitetaan filttereitä käyttämällä vaikka: ```....//..\```. Tässä tapauksessa en löytänyt tiedostoa muuttamalla merkkejä.
 
-Tehtävänannossa kuitenkin kerrottiin, että path traversal on "blocked" mutta tiedostoja käsitellään oletushakemistossa. Aikaisemmin mainitussa path traversal osiossa myös mainittiin, että voit päästä absoluuttisen polun avulla lipullesi, vaikka suora polku olisi estetty. Kokeilin siis juurihakemistosta absoluuttista ```/etc/passwd```-polkua:
+Tehtävänannossa kuitenkin kerrottiin, että path traversal on "blocked" mutta tiedostoja käsitellään oletushakemistossa. Aikaisemmin mainitussa path traversal osiossa myös mainittiin, että voit päästä absoluuttisen polun avulla lipullesi, vaikka suora polku olisi estetty. Kokeilin siis juurihakemistosta absoluuttista ```/etc/passwd```-polkua ja etenin samalla tavalla, kuin aiemmassa tehtävässä:
 
 <img width="592" height="406" alt="image" src="https://github.com/user-attachments/assets/e10e6327-b6fc-43e9-84f7-0a8a82168d05" />
 
 
 <img width="1015" height="196" alt="image" src="https://github.com/user-attachments/assets/7861dc25-6544-4514-8745-7a7076cd9be0" />
 
-
+- Olin vähän hämmentynyt tämän tehtävän takia, kun tuntui olevan helpompi kuin aikaisempi.
+- Lippu kuitenkin saatu.
 
 
 
