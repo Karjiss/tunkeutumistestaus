@@ -291,7 +291,49 @@ Kokeilen siis seuraavanlaista syötettä requesterilla: ```....//....//....//etc
 
 <img width="1270" height="742" alt="image" src="https://github.com/user-attachments/assets/ece1725a-da6e-4f36-8e81-ccf4392acedf" />
 
+<img width="975" height="206" alt="image" src="https://github.com/user-attachments/assets/191f9da7-179d-4672-aa88-8a4efe7e1e2d" />
+
+
 - Toimii!
+
+
+### PortSwigger - Insecure Direct Object Reference (IDOR)
+
+i) [Insecure direct object references](https://portswigger.net/web-security/access-control/lab-insecure-direct-object-references)
+
+Labrassa kohde säilyttää käyttäjien chat-lokeja suoraan palvelimen tiedostojärjestelmässä ja noutaa ne käyttäen staattista IP-osoitetta.
+Tehtävänä on saada käyttäjän "Carlos" salasana ja kirjautua hänen käyttäjälleen.
+
+Avaan labin etusivun, josta siirryn Live chattiin:
+
+<img width="1287" height="676" alt="image" src="https://github.com/user-attachments/assets/c7d46be0-3b73-45e0-8dc5-a92f0b83a418" />
+
+
+Kirjoitan chattiin viestin ja saan vastauksen:
+
+<img width="703" height="328" alt="image" src="https://github.com/user-attachments/assets/8ba9d472-7436-4eda-8a50-40e8cb044a51" />
+
+Yritän selvittää ZAP:illa, mitä tässä tapahtuu.
+
+<img width="1277" height="678" alt="image" src="https://github.com/user-attachments/assets/cd1cc809-3404-4cf2-9e36-b6cdb7e6d657" />
+
+- Keskustelumme on plaintext muodossa mukavasti.
+- Huomaan heti, että ```GET```-pyyntö hakee tiedostoa "2.txt".
+
+Haluan kokeilla, mikä on tiedosto "1.txt", joten vaihdan syötteen siihen.
+
+<img width="893" height="335" alt="image" src="https://github.com/user-attachments/assets/4243031d-c760-4f4a-9ad3-b0caf65ca2d1" />
+
+- Well well well...
+
+Kokeilen käyttäjätunnusta "Carlos" salasanalla, minkä juuri varastin:
+
+<img width="710" height="389" alt="image" src="https://github.com/user-attachments/assets/4245b044-1450-47d4-9f16-c4be4309f51f" />
+
+- Jee!
+
+Hyökkäys siis toimii niinkin helposti, kuin muokkaamalla tiedostonimeä, jota olet vastaanottamassa.
+
 
 
 ## Lähteet
