@@ -14,3 +14,14 @@
 - Virtualisointiohjelmisto: **VMWare Workstation Pro**
 
 ## x) Lue ja tiivistä
+
+### Cracking Passwords with Hashcat ([Karvinen 2022](https://terokarvinen.com/2022/cracking-passwords-with-hashcat/))
+
+
+
+### Crack File Password With John ([Karvinen 2023](https://terokarvinen.com/2023/crack-file-password-with-john/))
+
+
+
+## a) Asenna Hashcat ja testaa sen toiminta murtamalla esimerkkisalasana
+
