@@ -1,5 +1,4 @@
-<img width="385" height="55" alt="image" src="https://github.com/user-attachments/assets/d1fe1f6f-2704-4f37-a3b2-e8ca8fc874c2" /># h5 - Elokuu2026!
-
+# h5 - Elokuu2026!
 - Kurssi: [Tunkeutumistestaus](https://terokarvinen.com/tunkeutumistestaus/) (Karvinen 2026)
 - Opettaja: Tero Karvinen
 - Raportin kirjoittaja: Jani Karjalainen
