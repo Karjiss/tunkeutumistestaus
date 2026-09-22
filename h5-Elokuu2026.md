@@ -142,7 +142,7 @@ Seuraavaksi kokeilin murtaa salasanat Johnilla komennolla: ```john pdfdump```
 
 ## f) Tiiviste. Tee itse tai etsi verkosta salasanan tiiviste, jonka saat auki. Murra sen salaus
 
-Tässä tehtävässä halusin murtaa salasanat, jotka kaappasin tehtävässä [h3-EternalHomework](https://github.com/Karjiss/tunkeutumistestaus/blob/main/h3-EternalHomework.md).
+Tässä tehtävässä halusin murtaa salasanat, jotka kaappasin tehtävässä [h3-EternalHomework](https://github.com/Karjiss/tunkeutumistestaus/blob/main/h3-EternalHomework.md) (Karjalainen 2026).
 
 Kopioin salasanatiedoston testihash hakemistoon komennolla: ```cp ~/SUPERHAKKEROINTI/shadow ~/testihash```
 
