@@ -232,5 +232,20 @@ Sääntöjä on monenlaisia. Voit käyttää valmiiksi rakennettuja, tai rakenta
 
 ## Lähteet
 
+Hashcat. s.a. Rule-based attack. Luettavissa: https://hashcat.net/wiki/doku.php?id=rule_based_attack
+
+Karjalainen, J. 2026. h3-EternalHomework.md. Luettavissa: https://github.com/Karjiss/tunkeutumistestaus/blob/main/h3-EternalHomework.md
+
+Karvinen, T. 2022. Cracking Passwords with Hashcat. Luettavissa: https://terokarvinen.com/2022/cracking-passwords-with-hashcat/
+
+Karvinen, T. 2023. Crack File Password With John. Luettavissa: https://terokarvinen.com/2023/crack-file-password-with-john/
+
+Karvinen, T. 2026. Tunkeutumistestaus kurssin sivu. Luettavissa: https://terokarvinen.com/tunkeutumistestaus/
+
+Man7.org. s.a. tar(1) — Linux manual page. Luettavissa: https://man7.org/linux/man-pages/man1/tar.1.html
+
+OpenWall s.a. Sample non-hashes. Luettavissa: https://openwall.info/wiki/john/sample-non-hashes
+
+Vidarholen, V. 2011. Vidar's Blog. Password hashing with MD5-crypt in relation to MD5. Luettavissa: https://www.vidarholen.net/contents/blog/?p=32
 
 
