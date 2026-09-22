@@ -1,4 +1,4 @@
-# h5 - Elokuu2026!
+<img width="385" height="55" alt="image" src="https://github.com/user-attachments/assets/d1fe1f6f-2704-4f37-a3b2-e8ca8fc874c2" /># h5 - Elokuu2026!
 
 - Kurssi: [Tunkeutumistestaus](https://terokarvinen.com/tunkeutumistestaus/) (Karvinen 2026)
 - Opettaja: Tero Karvinen
@@ -142,5 +142,96 @@ Seuraavaksi kokeilin murtaa salasanat Johnilla komennolla: ```john pdfdump```
 - Sehän toimi.
 
 ## f) Tiiviste. Tee itse tai etsi verkosta salasanan tiiviste, jonka saat auki. Murra sen salaus
+
+Tässä tehtävässä halusin murtaa salasanat, jotka kaappasin tehtävässä [h3-EternalHomework](https://github.com/Karjiss/tunkeutumistestaus/blob/main/h3-EternalHomework.md).
+
+Kopioin salasanatiedoston testihash hakemistoon komennolla: ```cp ~/SUPERHAKKEROINTI/shadow ~/testihash```
+
+<img width="674" height="159" alt="image" src="https://github.com/user-attachments/assets/7955e514-c13d-479c-be16-4e5294e186c4" />
+
+**Tiedoston tuloste:**
+
+<img width="502" height="586" alt="image" src="https://github.com/user-attachments/assets/f86b1905-e6d3-427b-9bf5-adc0ce81bb44" />
+
+- Salasanat on hashatty.
+
+Kopioin yhden tiivisteen tiedostosta ja yritin tunnistaa sen käyttäen komentoa: ```hashid -m '$1$f2ZVMS4K$R9XkI.CmLdHhdUE3X9jqP0:14742:0:99999:7:::'```
+
+<img width="566" height="115" alt="image" src="https://github.com/user-attachments/assets/cdbd422b-0cfe-4871-896d-16911cc420fa" />
+
+- Todennäköisin on MD5-crypt.
+- MD5-crypt on MD5, johon on lisätty suola ja avaimen venytys, jotta brute-force olisi haasteellisempaa ([Vidarholen 2011](https://www.vidarholen.net/contents/blog/?p=32))
+- Moodi on ```-m 500```
+
+
+Seuraavaksi kokeilin, onnistuuko hashcat murtamaan "parempaa" MD5-tiivistettä.
+
+Komentona käytin: ```hashcat -m 500 -a 0 shadow rockyou.txt --force```
+
+Annoin komennon ajaa vain pari minuuttia, sillä virtuaalikoneeni ei voi hyödyntää näytönohjainta laskemiseen.
+
+Tulostin löydetyt salasanat komennolla: ```hashcat -m 500 --show shadow```
+
+Vertasin salasanoja käyttäen greppiä:
+
+<img width="1260" height="239" alt="image" src="https://github.com/user-attachments/assets/c7fb3a50-69a3-49cc-8934-645c92925818" />
+
+- Koko rockyou.txt läpikäynti hashcatilla prosessorilla olisi vienyt noin 40 minuuttia.
+- Löysin kuitenkin 3 osumaa!
+
+## g) Sanakirja. Oman sanakirjan teko parantaa onnistumismahdollisuuksia. Demonstroi, kuinka teet oman sanakirjan hashcat:n tai john:iin
+
+Loin ensin demotettavan md5 tiivisteen komennolla: ```echo -n "jani" | md5sum```
+
+<img width="295" height="66" alt="image" src="https://github.com/user-attachments/assets/62883038-0528-4b9d-9f1f-a44095422b61" />
+
+Sitten loin sanakirjan microlla komennolla: ```micro dict```, jonne laitoin eri sanoja.
+
+<img width="577" height="273" alt="image" src="https://github.com/user-attachments/assets/30cd081e-327f-43cb-bf40-0b0816d78074" />
+
+Tallensin käyttäen ```CTRL + S``` ja suljin micron ```CTRL + Q```.
+
+Ajoin jälleen hashcatin komennolla: ```hashcat -m 0 -a 0 d5d51a2d88cda585e37315067891381f dict --force```
+
+<img width="672" height="436" alt="image" src="https://github.com/user-attachments/assets/7bd0211e-9749-4fa5-8c9a-39e69a1c1e4d" />
+
+- Pam!
+
+## h) Hash rules. Näytä esimerkki HashCatin sääntöjen käytöstä (rules)
+
+Aiemmissa tehtävissä käytin sääntöä ```-a 0```, joka käyttää sanalistoja. Hashcatissa on kuitenkin useita sääntöjä! Sääntöjä löytyy [Hashcatin wikistä](https://hashcat.net/wiki/doku.php?id=rule_based_attack).
+
+Loin uuden version "jani"-tiedostosta, muuttaen alkukirjaimen isoksi:
+
+<img width="293" height="70" alt="image" src="https://github.com/user-attachments/assets/bcd98d17-1e7e-4e21-ab48-ff80eedb5359" />
+
+Loin tekstitiedoston "jani.rule" komennolla: ```micro jani.rule```
+
+Lisäsin tekstitiedoston sisälle vain "c", joka kertoo hashcatille, että muuttaa alkukirjaimen isoksi ja loput pieneksi.
+
+En tehnyt muutoksia sanalistaan, sillä sääntö hoitaa tämän puolestani. Ajoin sitten hashcat komennon ja säännön päälle komennolla: ```hashcat -m 0 4d6f618f683c460286d04611a1a18d6d dict -r jani.rule --force```
+
+<img width="631" height="453" alt="image" src="https://github.com/user-attachments/assets/85ed7ed5-1f4c-463a-8df4-8f7b5642d0a2" />
+
+- Cracked!
+- Sääntö toimii, sillä syntax näyttää hashcatin kokeilevan salasanoja isolla alkukirjaimella, vaikka sanakirjassani kaikki oli pienellä.
+
+Sitten on vielä valmiit säännöt, mitä tulee hashcatin mukana, esimerkiksi "best66", joka kokeilee sanoja väärinpäin.
+
+Tein jälleen uuden variaation janista, tällä kertaa: ```echo -n "inaj" | md5sum```
+
+<img width="297" height="68" alt="image" src="https://github.com/user-attachments/assets/490cd430-e264-4f14-afdc-ed551d744761" />
+
+Ajoin hashcatin käyttäen sanalistaani ja sääntöä, joka kaivetaan hashcatin tiedostoista komennolla: ```hashcat -m 0 cd380509265cfe613fd866cde4822fa3 dict -r /usr/share/hashcat/rules/best66.rule```
+
+<img width="647" height="450" alt="image" src="https://github.com/user-attachments/assets/01000aae-96a2-44c4-ba8f-7879dac82a3b" />
+
+- Cracked!
+
+Sääntöjä on monenlaisia. Voit käyttää valmiiksi rakennettuja, tai rakentaa niitä itse. Erittäin hyödyllistä, jos ideasi ovat loppu murtautuessa!
+
+
+## Lähteet
+
 
 
