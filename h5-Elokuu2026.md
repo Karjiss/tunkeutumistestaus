@@ -240,11 +240,15 @@ Karvinen, T. 2022. Cracking Passwords with Hashcat. Luettavissa: https://terokar
 
 Karvinen, T. 2023. Crack File Password With John. Luettavissa: https://terokarvinen.com/2023/crack-file-password-with-john/
 
+Karvinen, T. 2023.  Tero.zip. Saatavilla: https://TeroKarvinen.com/2023/crack-file-password-with-john/tero.zip
+
 Karvinen, T. 2026. Tunkeutumistestaus kurssin sivu. Luettavissa: https://terokarvinen.com/tunkeutumistestaus/
 
 Man7.org. s.a. tar(1) — Linux manual page. Luettavissa: https://man7.org/linux/man-pages/man1/tar.1.html
 
-OpenWall s.a. Sample non-hashes. Luettavissa: https://openwall.info/wiki/john/sample-non-hashes
+OpenWall. s.a. Sample non-hashes. Luettavissa: https://openwall.info/wiki/john/sample-non-hashes
+
+OpenWall. s.a. Pdfdump.tar. Saatavilla: https://openwall.info/wiki/_media/john/pdfdump.tar
 
 Vidarholen, V. 2011. Vidar's Blog. Password hashing with MD5-crypt in relation to MD5. Luettavissa: https://www.vidarholen.net/contents/blog/?p=32
 
