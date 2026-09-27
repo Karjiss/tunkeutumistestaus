@@ -26,7 +26,7 @@
 
 ## [Vaultline](https://ffuf.io.fi/play)
 
-### a) a) Tallenna itsellesi kopio säännöistä
+### a) Tallenna itsellesi kopio säännöistä
 
 **Scope**
 
