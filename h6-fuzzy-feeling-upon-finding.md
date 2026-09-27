@@ -12,3 +12,22 @@
 - Näytönohjain: NVIDIA GeForce RTX 2060
 - RAM: 16 GB DDR4
 - Virtualisointiohjelmisto: **VMWare Workstation Pro**
+
+## x) Lue ja tiivistä
+
+### **Fuzzing with Ffuf** ([Hoikkala 2026](https://io.fi/fuzzing_with_ffuf.pdf))
+
+- Ffuf on HTTP-bruteforce monitoimityökalu.
+- "Avoid magic - stay idiomatic and understandable", vältetään turhaa automaatiota.
+  - Mielestäni tämä auttaa myös käyttäjää oppimaan asioista paljon enemmän, kun sinun täytyy myös ymmärtää, eikä työkalu vain tee kaikkea puolestasi.
+- Ffuf tunnistaa poikkeamia eri osa-alueilla.
+  - Ffuf pitää sisällään niin paljon hyödyllisiä asioita, että sitä on mahdoton tiivistää tänne.
+
+
+## [Vaultline](https://ffuf.io.fi/play)
+
+### a) a) Tallenna itsellesi kopio säännöistä
+
+**Scope**
+
+Harjoituksen kohde on vain ja ainoastaan ffuf.io domain.
