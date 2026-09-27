@@ -26,8 +26,24 @@
 
 ## [Vaultline](https://ffuf.io.fi/play)
 
-### a) Tallenna itsellesi kopio säännöistä
+## a) Tallenna itsellesi kopio säännöistä
 
-**Scope**
+## Säännöt
 
-Harjoituksen kohde on vain ja ainoastaan ffuf.io domain.
+- **Scope**
+
+  - Harjoituksen kohde/scope on vain ja ainoastaan ```https://ffuf.io.fi```-domain. Työkalujen käyttö ja "hyökkäys" verkkosivun ulkopuolelle on ulkona scopesta.
+
+- **Rules of engagement**
+  - Käytän kohteen testaamiseen vain fuzzaus työkalua "ffuf", enkä kohdista muita hyökkäyksiä kohteeseen.
+  - Käytän vain taskien tekemiseen tarvittavia menetelmiä.
+
+- **Mihin oikeutesi tehdä tietoturvatestausta tähän kohteeseen perustuu?**
+  - Oikeuteni tehdä testausta perustuu Hoikkalan luentopuheeseen, opettajan antamaan tehtävänantoon sekä [demo-sivulla](https://ffuf.io.fi) olevaan tekstiin: "```FUZZING DEMO TARGET. This is not a real product. Every finding on this host is planted for a talk demo.```".
+
+- **Riskit ja mitigointi**
+  - Mahdollinen palvelunestohyökkäys on yksi, mitä voi tapahtua. Tämän mitigoimiseksi rajoitan ffuf:in pyyntömääriä parametreillä kuten: ```-p``` ja ```-r```.
+  - Väärä kohde-URL on myös riski, josta voi aiheutua lain kannalta ongelmia. Tämän riskin poistamiseksi minun täytyy olla erittäin huolellinen syötettäessäni kohde-URLia ffuf:iin.
+
+## b) Asenna ffuf versio, joka tukee aivan uutta preflight-ominaisuutta.
+
