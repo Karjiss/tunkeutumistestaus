@@ -47,3 +47,34 @@
 
 ## b) Asenna ffuf versio, joka tukee aivan uutta preflight-ominaisuutta.
 
+Ffuf on Kalissa valmiiksi asennettuna, mutta vanhalla versiolla. Katsoin Ffuf:in [GitHubista](https://github.com/ffuf/ffuf) ohjeet päivitykseen.
+
+Asensin ensiksi golangin komennolla: ```sudo apt install gccgo-go```, jonka jälkeen latasin uusimman ffuf-version komennolla: ```go install github.com/ffuf/ffuf/v2@latest```
+
+<img width="639" height="247" alt="image" src="https://github.com/user-attachments/assets/045551d3-7233-46d6-8302-64d345acb9f8" />
+
+- Ffuf ei kuitenkaan päivittynyt ja install uudelleen herjasi jotain versioista, joten päätin kokeilla ffuf uudelleenasennusta.
+
+Poistin ffuf:in komennolla: ```sudo apt remove ffuf```
+
+<img width="568" height="237" alt="image" src="https://github.com/user-attachments/assets/923e8f1e-89a6-4da3-ac54-aeb2d9b7a4af" />
+
+Latasin pre-built binäärin ffuf GitHubin "[Releases](https://github.com/ffuf/ffuf/releases/tag/v2.3.0)"-osiosta.
+
+<img width="810" height="95" alt="image" src="https://github.com/user-attachments/assets/1a129485-97c1-4917-8a72-0579298abadd" />
+
+Purin sen komennolla: ```tar -xzf ffuf_2.3.0_linux_amd64.tar.gz```
+
+
+Siirsin ffuf kansion latauskansiosta bin-kansioon, jotta sitä voi ajaa mistä tahansa hakemistosta komennolla: ```sudo mv ffuf /usr/local/bin/```
+
+Ajoin komennon: ```ffuf -V``` tarkastaakseni, onnistuinko.
+
+<img width="197" height="60" alt="image" src="https://github.com/user-attachments/assets/471ad45c-4069-47a3-8439-b54004897161" />
+
+- Tadaa! Aikaisempina viikkoina .tar-tiedostojen purkaminen tuli hyödyksi!
+
+
+## c1) Content discovery
+
+
