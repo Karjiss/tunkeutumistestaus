@@ -79,4 +79,40 @@ Ajoin komennon: ```ffuf -V``` tarkastaakseni, onnistuinko.
 
 ## c1) Content discovery
 
+Aloitin tehtäväsivun ohjeiden mukaisesti lataamalla valmiit wordlistit komennoilla:
 
+```
+curl -O https://ffuf.io.fi/wordlists/content.txt
+curl -O https://ffuf.io.fi/wordlists/passwords.txt
+```
+
+Ajoin testiajon komennolla: ```ffuf -w content.txt -u https://ffuf.io.fi/FUZZ -r 50```
+
+- Parametrillä: ```-r 50``` rajoitan pyyntöjä sekunnissa, jotta en kuormita palvelinta sekoilullani.
+
+<img width="391" height="272" alt="image" src="https://github.com/user-attachments/assets/47234123-0d53-4443-a032-919312f888da" />
+
+- Ffuf antoi tulosteen koko wordlistin sisällön palauttaen, tuloksia voi hioa.
+
+Tehtävänannossa näytetään parametrejä, joilla flagia tavoitellaan. Tuloksissa yhtenäistä on sanojen määrä, joten kokeilin sanojen filtteröimistä.
+
+Ajoin komennon: ```ffuf -w content.txt -u https://ffuf.io.fi/FUZZ -ac -r 50 -fw 135```
+
+- -ac = Automaattinen kalibrointi, joka automaattisesti filtteröi false-positive vastauksia.
+- -fw 135 = Poissulkee listalta kaikki vastaukset, joiden sanamäärä on 135.
+- Ffuf parametrien opastus löytyy Ffuf:in [CLI-flag](https://github.com/ffuf/ffuf/wiki/CLI-flags) osiosta, sekä ffuf GitHubin README:stä.
+
+<img width="377" height="310" alt="image" src="https://github.com/user-attachments/assets/26590c44-c56d-40c1-8cec-8201308f665f" />
+
+- Tulokset paljon paremmat.
+- Listassa useita sivuja, jotka ovat "piilossa".
+
+Esimerkkinä ```ffuf.io.fi/.env```-URL:in takana on "arkaluontoista" sisältöä:
+
+<img width="380" height="76" alt="image" src="https://github.com/user-attachments/assets/00cd259b-e4f6-48c0-bd93-6f8e0713e85d" />
+
+- Salasanoja, API-keytä yms.
+
+Toivottavasti olen oikealla polulla tehtävien suhteen, sillä mitään varsinaista ilmoitusta onnistuneesta tehtävästä ei ole.
+
+## c2) The interesting non-200
