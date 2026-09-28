@@ -94,15 +94,16 @@ Ajoin testiajon komennolla: ```ffuf -w content.txt -u https://ffuf.io.fi/FUZZ -r
 
 - Ffuf antoi tulosteen koko wordlistin sisällön palauttaen, tuloksia voi hioa.
 
-Tehtävänannossa näytetään parametrejä, joilla flagia tavoitellaan. Tuloksissa yhtenäistä on sanojen määrä, joten kokeilin sanojen filtteröimistä.
+Tehtävänannossa näytetään parametrejä, joilla flagia tavoitellaan. Tuloksissa yhtenäistä on sanojen määrä, joten kokeilin sanojen filtteröimistä. Vihjeissä myös lukee, että tehtävän piilotetut/tuntemattomat sivut vastaavat 200 eli "OK".
 
-Ajoin komennon: ```ffuf -w content.txt -u https://ffuf.io.fi/FUZZ -ac -r 50 -fw 135```
+Ajoin komennon: ```ffuf -w content.txt -u https://ffuf.io.fi/FUZZ -ac -mc 200 -r 50 -fw 135```
 
-- -ac = Automaattinen kalibrointi, joka automaattisesti filtteröi false-positive vastauksia.
-- -fw 135 = Poissulkee listalta kaikki vastaukset, joiden sanamäärä on 135.
+- ```-ac``` = Automaattinen kalibrointi, joka automaattisesti filtteröi false-positive vastauksia.
+- ```-fw 135``` = Poissulkee listalta kaikki vastaukset, joiden sanamäärä on 135.
+- ```-mc 200``` = "Matchaa" kaikki sivut, jotka vastaavat 200 statuskoodilla. 
 - Ffuf parametrien opastus löytyy Ffuf:in [CLI-flag](https://github.com/ffuf/ffuf/wiki/CLI-flags) osiosta, sekä ffuf GitHubin README:stä.
 
-<img width="377" height="310" alt="image" src="https://github.com/user-attachments/assets/26590c44-c56d-40c1-8cec-8201308f665f" />
+<img width="377" height="309" alt="image" src="https://github.com/user-attachments/assets/d3b29ec0-dce7-4071-9644-7cbec1cd290b" />
 
 - Tulokset paljon paremmat.
 - Listassa useita sivuja, jotka ovat "piilossa".
