@@ -65,6 +65,8 @@ Latasin pre-built binäärin ffuf GitHubin "[Releases](https://github.com/ffuf/f
 
 Purin sen komennolla: ```tar -xzf ffuf_2.3.0_linux_amd64.tar.gz```
 
+<img width="827" height="160" alt="image" src="https://github.com/user-attachments/assets/ffe31d09-452a-4ed6-952e-408416faab3b" />
+
 
 Siirsin ffuf kansion latauskansiosta bin-kansioon, jotta sitä voi ajaa mistä tahansa hakemistosta komennolla: ```sudo mv ffuf /usr/local/bin/```
 
