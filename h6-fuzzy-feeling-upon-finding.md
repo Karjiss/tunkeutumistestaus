@@ -221,7 +221,16 @@ Vihje: "**Every form carries a CSRF token that works exactly once. Fetch a fresh
 
 Käytin tässä tehtäväsivulla olevia ohjeita, sillä tämä on todella edistynyttä ainakin omasta mielestä!
 
-Loin ```login.raw```-tiedoston komennolla: ```
+Loin ```login.raw```-tiedoston komennolla: 
+
+```
+cat > login.raw <<'EOF'
+GET /login HTTP/1.1
+Host: ffuf.io.fi
+Accept: text/html
+
+EOF
+```
 
 <img width="721" height="217" alt="image" src="https://github.com/user-attachments/assets/9253f053-6a0c-4bc8-9b62-96e308547cc8" />
 
@@ -252,6 +261,7 @@ ffuf -w passwords.txt -u https://ffuf.io.fi/login -X POST \
 - Cracked!
 
 - Tämä on ainakin selvä onnistuminen.
+
 
 
 ## Lähteet 
