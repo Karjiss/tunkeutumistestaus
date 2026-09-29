@@ -270,8 +270,8 @@ Hoikkala, J. 2026. Luentokalvot kurssin tunnilta 24.9.2026. Luettavissa: https:/
 
 Karvinen, T. 2026. Tunkeutumistestaus kurssisivu. Luettavissa: https://terokarvinen.com/tunkeutumistestaus/
 
-Vaultline. s.a. Tehtävän sanalista. Saatavilla: https://ffuf.io.fi/wordlists/content.txt
+Vaultline Oy. s.a. Tehtävän sanalista. Saatavilla: https://ffuf.io.fi/wordlists/content.txt
 
-Vaultline. s.a Tehtävän salasanalista. Saatavilla: https://ffuf.io.fi/wordlists/passwords.txt
+Vaultline Oy. s.a Tehtävän salasanalista. Saatavilla: https://ffuf.io.fi/wordlists/passwords.txt
 
 Vaultline Oy. s.a. How to play, ffuf haasteet. luettavissa: https://ffuf.io.fi/play
