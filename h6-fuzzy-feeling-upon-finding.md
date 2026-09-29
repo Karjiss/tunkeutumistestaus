@@ -90,17 +90,19 @@ Ajoin testiajon komennolla: ```ffuf -w content.txt -u https://ffuf.io.fi/FUZZ -r
 
 - Parametrillä: ```-rate 100``` rajoitan pyyntöjä sekunnissa, jotta en kuormita palvelinta sekoilullani.
 
-<img width="391" height="272" alt="image" src="https://github.com/user-attachments/assets/47234123-0d53-4443-a032-919312f888da" />
+<img width="376" height="272" alt="image" src="https://github.com/user-attachments/assets/2fdbe738-810b-4458-b785-c28bcda69183" />
+
 
 - Ffuf antoi tulosteen koko wordlistin sisällön palauttaen, tuloksia voi hioa.
 
 Tehtävänannossa näytetään parametrejä, joilla flagia tavoitellaan. Tuloksissa yhtenäistä on sanojen määrä, joten kokeilin sanojen filtteröimistä. Vihjeissä myös lukee, että tehtävän piilotetut/tuntemattomat sivut vastaavat 200 eli "OK".
 
-Ajoin komennon: ```ffuf -w content.txt -u https://ffuf.io.fi/FUZZ -ac -mc 200 -rate 100 -fw 135```
+Ajoin komennon: ```ffuf -w content.txt -u https://ffuf.io.fi/FUZZ -ac -mc 200 -rate 200 -fw 135```
 
 - ```-ac``` = Automaattinen kalibrointi, joka automaattisesti filtteröi false-positive vastauksia.
 - ```-fw 135``` = Poissulkee listalta kaikki vastaukset, joiden sanamäärä on 135.
-- ```-mc 200``` = "Matchaa" kaikki sivut, jotka vastaavat 200 statuskoodilla. 
+- ```-mc 200``` = "Matchaa" kaikki sivut, jotka vastaavat 200 statuskoodilla.
+- Nostin ratea vähän.
 - Ffuf parametrien opastus löytyy Ffuf:in [CLI-flag](https://github.com/ffuf/ffuf/wiki/CLI-flags) osiosta, sekä ffuf GitHubin README:stä.
 
 <img width="377" height="309" alt="image" src="https://github.com/user-attachments/assets/d3b29ec0-dce7-4071-9644-7cbec1cd290b" />
