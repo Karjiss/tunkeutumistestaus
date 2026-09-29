@@ -260,6 +260,11 @@ ffuf -w passwords.txt -u https://ffuf.io.fi/login -X POST \
 
 - Tämä on ainakin selvä onnistuminen.
 
+Kirjauduin vielä sisälle tunnuksilla: "admin:vaultline2026".
+
+<img width="765" height="337" alt="image" src="https://github.com/user-attachments/assets/ffbbfe05-dfc2-47a4-83c8-af55e0e17bc6" />
+
+
 
 
 ## Lähteet 
