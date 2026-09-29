@@ -86,9 +86,9 @@ curl -O https://ffuf.io.fi/wordlists/content.txt
 curl -O https://ffuf.io.fi/wordlists/passwords.txt
 ```
 
-Ajoin testiajon komennolla: ```ffuf -w content.txt -u https://ffuf.io.fi/FUZZ -r 50```
+Ajoin testiajon komennolla: ```ffuf -w content.txt -u https://ffuf.io.fi/FUZZ -rate 100```
 
-- Parametrillä: ```-r 50``` rajoitan pyyntöjä sekunnissa, jotta en kuormita palvelinta sekoilullani.
+- Parametrillä: ```-rate 100``` rajoitan pyyntöjä sekunnissa, jotta en kuormita palvelinta sekoilullani.
 
 <img width="391" height="272" alt="image" src="https://github.com/user-attachments/assets/47234123-0d53-4443-a032-919312f888da" />
 
@@ -96,7 +96,7 @@ Ajoin testiajon komennolla: ```ffuf -w content.txt -u https://ffuf.io.fi/FUZZ -r
 
 Tehtävänannossa näytetään parametrejä, joilla flagia tavoitellaan. Tuloksissa yhtenäistä on sanojen määrä, joten kokeilin sanojen filtteröimistä. Vihjeissä myös lukee, että tehtävän piilotetut/tuntemattomat sivut vastaavat 200 eli "OK".
 
-Ajoin komennon: ```ffuf -w content.txt -u https://ffuf.io.fi/FUZZ -ac -mc 200 -r 50 -fw 135```
+Ajoin komennon: ```ffuf -w content.txt -u https://ffuf.io.fi/FUZZ -ac -mc 200 -rate 100 -fw 135```
 
 - ```-ac``` = Automaattinen kalibrointi, joka automaattisesti filtteröi false-positive vastauksia.
 - ```-fw 135``` = Poissulkee listalta kaikki vastaukset, joiden sanamäärä on 135.
