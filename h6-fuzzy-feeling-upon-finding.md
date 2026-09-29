@@ -79,6 +79,8 @@ Ajoin komennon: ```ffuf -V``` tarkastaakseni, onnistuinko.
 
 ## c1) Content discovery
 
+**_NOTE:_**  Käytin kaikkien tulevien tehtävien parametrien selvitykseen vain ffuf GitHubin [CLI-Flags](https://github.com/ffuf/ffuf/wiki/CLI-flags) osiota.
+
 Aloitin tehtäväsivun ohjeiden mukaisesti lataamalla valmiit wordlistit komennoilla:
 
 ```
