@@ -252,7 +252,7 @@ ffuf -w passwords.txt -u https://ffuf.io.fi/login -X POST \
 
 - ```-preflight login.raw``` = Pyytää aina uuden CRTF-tokenin yrityksen jälkeen.
 - ```-preflight-var 'CSRFTOKEN:name="csrf_token" value="([a-f0-9]+)"'``` = Poimii uuden CRTF-tokenin, minkä ```-preflight``` pyytää.
-- ```-preflight-mode per-request``` = Ajaa koko komennon uudestaan joka yrityksellä, eli ```-preflight login.raw``` --> ```preflight-var xxxxxxx``` --> **YRITYS** ja sama uudestaan.
+- ```-preflight-mode per-request``` = Ajaa koko komennon uudestaan joka yrityksellä, eli **-preflight login.raw** --> **preflight-var xxxxxxx** --> **YRITYS** ja sama uudestaan.
 
 -  Nämä parametrien selitykset löytyivät sivulta: "[Preflight and postflight](https://github.com/ffuf/ffuf/wiki/Preflight-and-postflight)".
 
