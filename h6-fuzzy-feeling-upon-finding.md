@@ -93,22 +93,21 @@ Ajoin testiajon komennolla: ```ffuf -w content.txt -u https://ffuf.io.fi/FUZZ -r
 <img width="376" height="272" alt="image" src="https://github.com/user-attachments/assets/2fdbe738-810b-4458-b785-c28bcda69183" />
 
 
-- Ffuf antoi tulosteen koko wordlistin sisällön palauttaen, tuloksia voi hioa.
+- Ffuf antoi tulosteena koko wordlistin takaisin, false-positive.
 
 Tehtävänannossa näytetään parametrejä, joilla flagia tavoitellaan. Tuloksissa yhtenäistä on sanojen määrä, joten kokeilin sanojen filtteröimistä. Vihjeissä myös lukee, että tehtävän piilotetut/tuntemattomat sivut vastaavat 200 eli "OK".
 
-Ajoin komennon: ```ffuf -w content.txt -u https://ffuf.io.fi/FUZZ -ac -mc 200 -rate 200 -fw 135```
+Ajoin komennon: ```ffuf -w content.txt -u https://ffuf.io.fi/FUZZ -ac -rate 400```
 
 - ```-ac``` = Automaattinen kalibrointi, joka automaattisesti filtteröi false-positive vastauksia.
-- ```-fw 135``` = Poissulkee listalta kaikki vastaukset, joiden sanamäärä on 135.
-- ```-mc 200``` = "Matchaa" kaikki sivut, jotka vastaavat 200 statuskoodilla.
 - Nostin ratea vähän.
 - Ffuf parametrien opastus löytyy Ffuf:in [CLI-flag](https://github.com/ffuf/ffuf/wiki/CLI-flags) osiosta, sekä ffuf GitHubin README:stä.
 
-<img width="377" height="309" alt="image" src="https://github.com/user-attachments/assets/d3b29ec0-dce7-4071-9644-7cbec1cd290b" />
+<img width="380" height="359" alt="image" src="https://github.com/user-attachments/assets/27e70a44-2ac2-41ac-bd2c-3c66efae2a2d" />
 
 - Tulokset paljon paremmat.
 - Listassa useita sivuja, jotka ovat "piilossa".
+- Parametrillä: ```-mc 200´´´ olisin voinut matchata tulosteeseen vain statuskoodin 200 omaavat polut, mutta näin sain enemmän tuloksia.
 
 Esimerkkinä ```ffuf.io.fi/.env```-URL:in takana on "arkaluontoista" sisältöä:
 
@@ -119,3 +118,47 @@ Esimerkkinä ```ffuf.io.fi/.env```-URL:in takana on "arkaluontoista" sisältöä
 Toivottavasti olen oikealla polulla tehtävien suhteen, sillä mitään varsinaista ilmoitusta onnistuneesta tehtävästä ei ole.
 
 ## c2) The interesting non-200
+
+"**Find the paths that exist but are not linked from anywhere.**"
+
+Vihjeenä oli : "**ffuf matches 200,204,301,302,307,401,403,405,500 by default. Anything outside that list is invisible and nothing tells you it was skipped. Match everything, then filter down.**"
+
+Tehtävänannossa on myös kohta "**flags in play**", jossa on parametrit: ```-mc all``` ja ```-fc```.
+
+```-mc all``` = Match status codes all, eli palauttaa kaikkien statuskoodien tulokset.
+```-fc``` = Filter status codes. Tämä taas filtteröi statuskoodeja pois tuloksista.
+
+Ajoin ensin ffuf:in komennolla: ```ffuf -w content.txt -u https://ffuf.io.fi/FUZZ -mc all -rate 400```
+
+<img width="366" height="272" alt="image" src="https://github.com/user-attachments/assets/8733113a-39b1-466b-980a-1d37d830ebdd" />
+
+
+- Valtava määrä taas false-positivea, sillä koko wordlist palautti matcheja.
+
+Seuraavaksi kokeilin lisäämällä statuskoodien filtteröinnin koodiin 200.
+
+Ajoin komennon: ```ffuf -w content.txt -u https://ffuf.io.fi/FUZZ -mc all -fc 200 -rate 400```
+
+<img width="373" height="254" alt="image" src="https://github.com/user-attachments/assets/d005f77a-9ca6-4f49-9e8c-2cb090a02ba2" />
+
+- Nämä tulosteet näkyvät C1 kohdassa, mutta nyt 200 statuskoodit filtteröitynä ulos.
+- Istutetut polut ovat varmaankin ```/.git/``` ja ```/server-status/```.
+
+
+## c3) Recursion
+
+"**The wordlist holds names, not paths, so C1 found you 13 things and none of them nested. Descending finds more.**"
+
+Vihje: "**Directories redirect to their trailing-slash form, which is the signal ffuf's default strategy keys off. Recursion reuses the same wordlist, so it can only descend into a name the list contains.**"
+
+Käytettävät flagit: ```-recursion, -recursion-depth```
+
+- ```-recursion``` = Scan discovered directories recursively. Ffuf ajaa sanalistoja sisäkkäin poluissa, eli kokeilee niitä polusta polkuun.
+- ```-recursion-depth``` = Maximum recursion depth (0 = unlimited). Määrittää, kuinka "syvälle" ffuf yrittää maksimissaan.
+
+
+
+
+
+
+
